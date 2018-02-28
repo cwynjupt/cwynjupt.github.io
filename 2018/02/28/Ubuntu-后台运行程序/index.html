@@ -247,7 +247,7 @@
         <h3 id="Ubuntu后台运行程序"><a href="#Ubuntu后台运行程序" class="headerlink" title="Ubuntu后台运行程序"></a>Ubuntu后台运行程序</h3><h4 id="1-使用nohup"><a href="#1-使用nohup" class="headerlink" title="1. 使用nohup"></a>1. 使用nohup</h4><p>​    <code>nohup Command &amp;</code></p>
 <p>​    例如运行matlab程序：</p>
 <p>​    <code>nohup matlab -nodisplay -r &#39;run main&#39; 1&gt; running.log 2&gt; running.err &amp;</code></p>
-<p>​    需要注意的是: 在执行完这条命令后终端会返回ignoring input and appending output to nohup.out，此时表示挂起成功，但<strong>需要在键盘按任意键返回到shell输入命令窗口，然后通过在shell中输入exit来退出终端</strong>。</p>
+<p>​    需要注意的是: 在执行完这条命令后终端会返回ignoring input and appending output to nohup.out，此时表示挂起成功，但<strong>需要在键盘按任意键返回到shell输入命令窗口，然后通过在shell中输入exit来退出终端</strong>。<a id="more"></a></p>
 <p>​    如果使用nohup命令提交作业，那么在缺省情况下该作业的所有输出都被重定向到一个名为nohup.out的文件中，除非另外指定了输出文件：</p>
 <p>​    <code>nohup command &gt; myout.file 2&gt;&amp;1 &amp;</code> </p>
 <p>​    在上面的例子中，标准输出和标准错误被重定向到myout.file文件中。linux中默认定义两个变量：1指标准输出；2指错误输出。但是上面的指令不能写成：<code>nohup command &gt; myout.file 2&gt;myout.file &amp;</code> 因为会造成相同文件名冲突。</p>

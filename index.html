@@ -255,23 +255,15 @@
           <h3 id="Ubuntu后台运行程序"><a href="#Ubuntu后台运行程序" class="headerlink" title="Ubuntu后台运行程序"></a>Ubuntu后台运行程序</h3><h4 id="1-使用nohup"><a href="#1-使用nohup" class="headerlink" title="1. 使用nohup"></a>1. 使用nohup</h4><p>​    <code>nohup Command &amp;</code></p>
 <p>​    例如运行matlab程序：</p>
 <p>​    <code>nohup matlab -nodisplay -r &#39;run main&#39; 1&gt; running.log 2&gt; running.err &amp;</code></p>
-<p>​    需要注意的是: 在执行完这条命令后终端会返回ignoring input and appending output to nohup.out，此时表示挂起成功，但<strong>需要在键盘按任意键返回到shell输入命令窗口，然后通过在shell中输入exit来退出终端</strong>。</p>
-<p>​    如果使用nohup命令提交作业，那么在缺省情况下该作业的所有输出都被重定向到一个名为nohup.out的文件中，除非另外指定了输出文件：</p>
-<p>​    <code>nohup command &gt; myout.file 2&gt;&amp;1 &amp;</code> </p>
-<p>​    在上面的例子中，标准输出和标准错误被重定向到myout.file文件中。linux中默认定义两个变量：1指标准输出；2指错误输出。但是上面的指令不能写成：<code>nohup command &gt; myout.file 2&gt;myout.file &amp;</code> 因为会造成相同文件名冲突。</p>
-<h5 id="查看后台运行的任务："><a href="#查看后台运行的任务：" class="headerlink" title="查看后台运行的任务："></a>查看后台运行的任务：</h5><ol>
-<li>在当前同一个终端，使用<code>jobs</code> 查看，可以使用<code>fg %n</code> 将编号为n的任务转前台</li>
-<li>如果终端已经关掉重新开一个，使用<code>ps</code> 查看</li>
-<li>监控标准输出可以使用<code>tail -f myout.file</code> </li>
-</ol>
-<h4 id="2-使用screen"><a href="#2-使用screen" class="headerlink" title="2. 使用screen"></a>2. 使用screen</h4><p>​    <code>screen Command</code> </p>
-<p>​    此命令会打开一个新的窗口并在这个窗口运行command指令，要退出时使用<code>Ctrl+a，d</code>退出当前窗口到主窗口。</p>
-<p>​    使用<code>screen -ls</code> 可以查看screen会话。</p>
-<p>​    使用<code>screen -r n</code> 重新连接编号为n的screen使其接着运行</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">参考博客：[<span class="string">http://blog.csdn.net/wind19/article/details/4986458</span>](<span class="link">http://blog.csdn.net/wind19/article/details/4986458</span>)</span><br></pre></td></tr></table></figure>
-
+<p>​    需要注意的是: 在执行完这条命令后终端会返回ignoring input and appending output to nohup.out，此时表示挂起成功，但<strong>需要在键盘按任意键返回到shell输入命令窗口，然后通过在shell中输入exit来退出终端</strong>。
         
       
+    
+      <p class="content-link">
+        <a href="/2018/02/28/Ubuntu-后台运行程序/#more">
+          <span>继续阅读</span>
+        </a>
+      </p>
     
     </div>
     
@@ -304,7 +296,7 @@
     <div class="post-content syuanpi riseIn-light back-3">
       
         
-          <h2 id="远程服务器安装matlab："><a href="#远程服务器安装matlab：" class="headerlink" title="远程服务器安装matlab："></a>远程服务器安装matlab：</h2><h4 id="第一步：下载matlab-for-Ubuntu"><a href="#第一步：下载matlab-for-Ubuntu" class="headerlink" title="第一步：下载matlab for Ubuntu"></a>第一步：下载matlab for Ubuntu</h4><pre><code>下载完成之后**不要急着上传到服务器**上，因为要破解MATLAB还需要更换其中的一个文件。先解压两个压缩包，然后压缩包crack中有一个README文件。
+          <h2 id="远程服务器安装matlab："><a href="#远程服务器安装matlab：" class="headerlink" title="远程服务器安装matlab："></a>远程服务器安装matlab：</h2><h4 id="第一步：下载matlab-for-Ubuntu"><a href="#第一步：下载matlab-for-Ubuntu" class="headerlink" title="第一步：下载matlab for Ubuntu"></a>第一步：下载matlab for Ubuntu</h4><pre><code>下载完成之后**不要急着上传到服务器**上，因为要破解MATLAB还需要更换其中的一个文件。先解压两个压缩包，然后压缩包crack中有一个README文件。&lt;!--more--&gt;
 </code></pre><p>​    文档中说要将ISO（就是那个6个G的镜像文件）中的”install.jar”给替换掉，拿来替换的是和README文件同目录的install.jar文件。所以应该是<strong>在上传文件之前就替换掉这个install.jar文件</strong>。</p>
 <pre><code>替换方法：用UltraISO打开你下载的ISO文件（这里貌似只能用UltraISO打开，用“好压”之类的软件是无法对ISO中的文件进行修改的）。然后找到要替换的文件目录，如下图示:
 </code></pre><p><img src="http://img.blog.csdn.net/20150408174729713?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvam9obm55Y29uc3RhbnRpbmU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
