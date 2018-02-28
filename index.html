@@ -296,45 +296,15 @@
     <div class="post-content syuanpi riseIn-light back-3">
       
         
-          <h2 id="远程服务器安装matlab："><a href="#远程服务器安装matlab：" class="headerlink" title="远程服务器安装matlab："></a>远程服务器安装matlab：</h2><h4 id="第一步：下载matlab-for-Ubuntu"><a href="#第一步：下载matlab-for-Ubuntu" class="headerlink" title="第一步：下载matlab for Ubuntu"></a>第一步：下载matlab for Ubuntu</h4><pre><code>下载完成之后**不要急着上传到服务器**上，因为要破解MATLAB还需要更换其中的一个文件。先解压两个压缩包，然后压缩包crack中有一个README文件。&lt;!-- more --&gt;
-</code></pre><p>​    文档中说要将ISO（就是那个6个G的镜像文件）中的”install.jar”给替换掉，拿来替换的是和README文件同目录的install.jar文件。所以应该是<strong>在上传文件之前就替换掉这个install.jar文件</strong>。</p>
-<pre><code>替换方法：用UltraISO打开你下载的ISO文件（这里貌似只能用UltraISO打开，用“好压”之类的软件是无法对ISO中的文件进行修改的）。然后找到要替换的文件目录，如下图示:
-</code></pre><p><img src="http://img.blog.csdn.net/20150408174729713?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvam9obm55Y29uc3RhbnRpbmU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
-<pre><code>然后你需要做的是把crack文件夹（就是你解压后的文件夹）中的install.jar直接给拖进去，直接覆盖。完成后，**不要直接关闭UltraISO，而是要点击文件选项下的保存**。否者上面的工作都白做了（另外UltraISO会自动帮你备份一个uibak格式的文件，没什么用，可以删掉），这个保存过程估计要几分钟。
-</code></pre><h4 id="第二步：把文件上传到linux服务器上。"><a href="#第二步：把文件上传到linux服务器上。" class="headerlink" title="第二步：把文件上传到linux服务器上。"></a>第二步：把文件上传到linux服务器上。</h4><pre><code>服务器用的是Ubuntu 14.04。需要上传的是**ISO文件，crack文件夹，so文件**（就是libmwservices.zip解压后的那个so文件）。建议你新建一个目录去存放这三个文件，例如我的文件夹为MATLABforlinux。
-</code></pre><h4 id="第三步：挂载，然后安装。"><a href="#第三步：挂载，然后安装。" class="headerlink" title="第三步：挂载，然后安装。"></a>第三步：挂载，然后安装。</h4><p><strong>（1）首先你需要把ISO文件挂载上去，</strong> 为防止出现权限不够的问题，建议使用root用户。文件挂载命令格式如下：</p>
-<p>​    sudo mount -o loop R2014b_glnxa64.iso  /matlab</p>
-<p>​    其中iso那个是你的iso名字（不是当前目录的话，还要写出前面的路径ISO），/matlab是你要挂载的文件夹目录，建议你自己新建一个文件夹。</p>
-<p><strong>（2）接下来就是跳转到挂载目录：</strong>  cd /matlab</p>
-<p><strong>（3）执行安装操作：</strong> sudo ./install</p>
-<p>​    安装中间报错显示缺少库，安装库就行               </p>
-<p>​    弹出安装界面了，接下来和windows安装就一样了。</p>
-<p><strong>（4）你需要选择非Internet模式。</strong> 输入的秘钥是README中提供的那个秘钥。默认的安装目录是在/usr/local/MATLAB/R2014b，建议不要更改默认目录。安装到最后一个界面是问你要不要激活。 我选择的是不激活，然后用命令行启动MATLAB。</p>
-<p><strong>（5）启动命令</strong>：sudo /usr/local/MATLAB/R2014b/bin/matlab</p>
-<p>​    启动之后会弹出激活,选择非联网激活，选择crack文件夹中的liscense.lic。最后激活完成。</p>
-<pre><code>网上的教程基本上到这就结束了，这才是第二个坑，还是个大坑啊。如果直接启动的话，会报“**License checkout failed.License Manager Error-8**”错误。
-</code></pre><h4 id="第四步：使用so文件进行真正的破解。"><a href="#第四步：使用so文件进行真正的破解。" class="headerlink" title="第四步：使用so文件进行真正的破解。"></a>第四步：使用so文件进行真正的破解。</h4><p><strong>（1）</strong>把源文件的so文件挪开：</p>
-<p>​    sudo mv /usr/local/MATLAB/R2014b/bin/glnxa64/libmwservices.so  /usr/local/MATLAB/R2014b/bin/glnxa64/libmwservices.so.baksudo </p>
-<p><strong>（2）</strong>把crack文件下的so文件拷贝过来：</p>
-<p>​    cp MATLABforlinux/MATLAB_R2014B_MAC_LINUX_crack/libmwservices.so /usr/local//MATLAB/R2014b/bin/glnxa64/</p>
-<p><strong>（3）</strong>执行破解命令：</p>
-<p>​    sudo /usr/local/MATLAB/R2014b/bin/activate_matlab.sh -propertiesFile /usr/local/MATLAB/R2014b/etc/activate.ini</p>
-<p>​    接下来会再次弹出激活窗口，操作和上面一样。不过这次是真正的激活了。</p>
-<h4 id="第五步：设置环境变量"><a href="#第五步：设置环境变量" class="headerlink" title="第五步：设置环境变量"></a>第五步：设置环境变量</h4><p><strong>（1）</strong> sudo vi /etc/profile<br><strong>（2）</strong> 在文件末尾添加 export PATH=/usr/local/MATLAB/R2014b/bin:$PATH<br><strong>（3）</strong> 保存并退出后使设置生效 source /etc/profile</p>
-<p>​    这样就可以直接使用matlab打开matlab了。</p>
-<h2 id="安装过程中遇到的的错误："><a href="#安装过程中遇到的的错误：" class="headerlink" title="安装过程中遇到的的错误："></a>安装过程中遇到的的错误：</h2><ul>
-<li>显示缺少库，安装库：libXt.so.6-&gt;apt-get install libxt6(其余类似)</li>
-</ul>
-<ul>
-<li>打开matlab时页面显示permission denied：不要使用sudo打开，直接使用matlab命令打开。</li>
-</ul>
-<h2 id="远程服务器运行matlab程序："><a href="#远程服务器运行matlab程序：" class="headerlink" title="远程服务器运行matlab程序："></a>远程服务器运行matlab程序：</h2><ul>
-<li>matlab -nodisplay -r ‘run main’（命令行运行）</li>
-<li>nohup matlab -nodisplay -r ‘run main’ 1&gt; running.log 2&gt; running.err &amp;（挂机运行）</li>
-</ul>
-
+          <h2 id="远程服务器安装matlab："><a href="#远程服务器安装matlab：" class="headerlink" title="远程服务器安装matlab："></a>远程服务器安装matlab：</h2><h4 id="第一步：下载matlab-for-Ubuntu"><a href="#第一步：下载matlab-for-Ubuntu" class="headerlink" title="第一步：下载matlab for Ubuntu"></a>第一步：下载matlab for Ubuntu</h4><p>​         下载完成之后<strong>不要急着上传到服务器</strong>上，因为要破解MATLAB还需要更换其中的一个文件。先解压两个压缩包，然后压缩包crack中有一个README文件。
         
       
+    
+      <p class="content-link">
+        <a href="/2018/02/28/远程服务器运行matlab/#more">
+          <span>继续阅读</span>
+        </a>
+      </p>
     
     </div>
     
