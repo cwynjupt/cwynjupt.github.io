@@ -51,11 +51,7 @@
 
 
 
-  <title>
-  
-    归档 · 努力努力再努力
-  
-</title>
+  <title> java程序结构 · 努力努力再努力 </title>
 </head>
 <body>
   <div class="progress">
@@ -226,207 +222,102 @@
         <div class="main-wrapper">
           
     
-    <div class="archive syuanpi riseIn-light" id="archive">
-        
-            <h1 class="archive-title">Total</h1>
-            <span class="archive-num">一共有 11 篇文章</span>
-        
-        <div class="archive-list">
-            <ul>
-        
+  <article class="
+  post
+   is_post 
+  ">
+    <header class="post-header">
+      <div class="post-time syuanpi riseIn-light back-1">
+        <div class="post-time-wrapper">
+          <span>2018-03-05</span>
+          
+          
             
-                
-                
-                
-                    
-                     
-                        <h2 class="archive-year"> 2018 </h2>
-                    
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    03-05
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/03/05/异常检测技术/">异常检测技术</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    03-05
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/03/05/elk使用：kibana使用/">elk使用：kibana使用</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    03-05
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/03/05/java循环/">java循环</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    03-05
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/03/05/java数组/">java数组</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    03-05
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/03/05/java抽象类/">java抽象类</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    03-05
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/03/05/java访问控制/">java访问控制</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    03-05
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/03/05/java程序结构/">java程序结构</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    03-05
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/03/05/java对象/">java对象</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    02-28
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/02/28/Ubuntu-后台运行程序/">Ubuntu 后台运行程序</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    02-28
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/02/28/远程服务器运行matlab/">远程服务器运行matlab</a>
-                </span>
-            </li>
-
-        
-            </ul>
+          
         </div>
+      </div>
+      <h1 class="post-title syuanpi riseIn-light back-2">
+        
+          java程序结构
+        
+      </h1>
+    </header>
+    <div class="post-content syuanpi riseIn-light back-3">
+      
+        <h1 id="Java程序结构"><a href="#Java程序结构" class="headerlink" title="Java程序结构"></a>Java程序结构</h1><p><code>package demo.day01;</code>    //必须是小写字母，多个单词用.隔开<br><code>import Java.util.Scanner;</code>   //java API 一定在当前库存在<br><code>public class HelloWorld{</code>  //类名每个单词首字母大写</p>
+<pre><code>//类体中成员要缩进一个tab宽
+`public static void main(String [] args){`
+//方法中的成员也要缩进1个tab
+
+    `Scanner console=new Scanner(System.in);`
+`System.out.println();`
+
+}`
+</code></pre><p><code>}</code>  //类体 class body<br>//括号要配对，声明开始和结束的位置要对齐</p>
+<p>编译错误：Java编译器在编译源代码为class文件的过程中出现的错误，一般为语法错误<br>          当出现编译错误是没有class文件产生，也就不能运行程序。<br>eclipse 中出现的红色<code>×</code>  ：编译错误</p>
+<p>在控制台运行Java程序<br>1.设置CLASSPATH环境变量,指向package所在的目录（bin）<br>2.执行<code>Java package.classname</code></p>
+<p>基本类型 8种<br>整数类型：byte short int  long<br>浮点数：float double<br>    float 32位<br>    double 64位<br>    double后缀：D d<br>    float后缀：F f<br>    boolean<br>    char    就是一个数，二进制的<br>    显示的时候经过一系列的处理显示为字符<br>    int n=65;//n=01000001<br>    System.out.println();//n是int类型，按照十进制转换为‘65’<br>    System.out.pirntln((char)n);//char类型，将按照字符输出‘A’<br>    System.out.println((int)’中’)；//int类型，按照十进制转换输出-&gt;‘20013’</p>
+<pre><code>输出语句根据类型得到不同的结果
+</code></pre><h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><pre><code>1.声明初始化后使用
+2.有明确类型
+3.有作用域
+</code></pre><h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><pre><code>数学运算+ - * / % ++ --
+1、注意数据类型的范围，避免溢出运算。。溢出是没有编译和运行错误的
+2、整数的除法是整除
+3、%运算
+4、自增（自减）运算
+</code></pre>
+      
+    
     </div>
     
-  <nav class="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2018/page/2/">2</a><a class="extend next" rel="next" href="/archives/2018/page/2/">下一页 ></a>
+      
+      
+    
+  </article>
+  
+    
+  <nav class="article-page">
+    
+      <a href="/2018/03/05/java访问控制/" id="art-left" class="art-left">
+        <span class="next-title">
+          <i class="iconfont icon-left"></i>java访问控制
+        </span>
+      </a>
+    
+    
+      <a href="/2018/03/05/java对象/" id="art-right" class="art-right">
+        <span class="prev-title"> 
+          java对象<i class="iconfont icon-right"></i>  
+        </span>
+      </a>
+    
   </nav>
 
+    
+  <i id="com-switch" class="iconfont icon-more jumping-in long infinite" style="font-size:24px;display:block;text-align:center;transform:rotate(180deg);"></i>
+  <div class="post-comments" id="post-comments" style="display: block;margin: auto 16px;">
+    
+    
+    
+
+  </div>
+
+
+  
+   
+    
+  
+  <aside class="post-toc">
+    <span class="title" id="toc-switch"><span>文章导航</span></span>
+    <div class="toc-inner syuanpi back-1 fallIn-light">
+      <li class="title-link"><a href="javascript:;" class="toTop">java程序结构</a></li>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java程序结构"><span class="toc-text">Java程序结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#变量"><span class="toc-text">变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运算符"><span class="toc-text">运算符</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </aside>
+
+
+  
 
 
         </div>

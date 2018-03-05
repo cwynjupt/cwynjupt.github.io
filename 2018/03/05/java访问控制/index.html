@@ -51,11 +51,7 @@
 
 
 
-  <title>
-  
-    归档 · 努力努力再努力
-  
-</title>
+  <title> java访问控制 · 努力努力再努力 </title>
 </head>
 <body>
   <div class="progress">
@@ -226,207 +222,99 @@
         <div class="main-wrapper">
           
     
-    <div class="archive syuanpi riseIn-light" id="archive">
-        
-            <h1 class="archive-title">Total</h1>
-            <span class="archive-num">一共有 11 篇文章</span>
-        
-        <div class="archive-list">
-            <ul>
-        
+  <article class="
+  post
+   is_post 
+  ">
+    <header class="post-header">
+      <div class="post-time syuanpi riseIn-light back-1">
+        <div class="post-time-wrapper">
+          <span>2018-03-05</span>
+          
+          
             
-                
-                
-                
-                    
-                     
-                        <h2 class="archive-year"> 2018 </h2>
-                    
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    03-05
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/03/05/异常检测技术/">异常检测技术</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    03-05
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/03/05/elk使用：kibana使用/">elk使用：kibana使用</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    03-05
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/03/05/java循环/">java循环</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    03-05
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/03/05/java数组/">java数组</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    03-05
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/03/05/java抽象类/">java抽象类</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    03-05
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/03/05/java访问控制/">java访问控制</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    03-05
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/03/05/java程序结构/">java程序结构</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    03-05
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/03/05/java对象/">java对象</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    02-28
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/02/28/Ubuntu-后台运行程序/">Ubuntu 后台运行程序</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    02-28
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/02/28/远程服务器运行matlab/">远程服务器运行matlab</a>
-                </span>
-            </li>
-
-        
-            </ul>
+          
         </div>
+      </div>
+      <h1 class="post-title syuanpi riseIn-light back-2">
+        
+          java访问控制
+        
+      </h1>
+    </header>
+    <div class="post-content syuanpi riseIn-light back-3">
+      
+        <h2 id="访问控制："><a href="#访问控制：" class="headerlink" title="访问控制："></a>访问控制：</h2><pre><code>封装，将数据封装到类的内部；将算法封装到方法中
+封装结果：存在但是不可见
+</code></pre><p>public：任何位置可见，修饰：属性、类、方法、内部类；跨包访问类，需要使用import语句导入</p>
+<p>protected：当前包可见，子类中可见；修饰：类的成员（只能在类体中使用），包括：属性、方法、内部类<br>默认的：当前包内部可见，就是没有任何修饰词；修饰:类、属性、方法、内部类等，在实际项目中很使用</p>
+<p>private：仅仅在类内部可见；修饰：类的成员，包括：属性、方法、内部类</p>
+<p>默认类（包内类）的访问范围：当前包内部可见，其他包不能访问<br>    <strong>类的访问范围受限！！！</strong></p>
+<p>在企业项目中建议：所有类都是公用类。。封装的类 使用内部类</p>
+<h4 id="Java文件规则："><a href="#Java文件规则：" class="headerlink" title="Java文件规则："></a>Java文件规则：</h4><ol>
+<li><p>一个Java文件中可以有多个类，但只能有一个共有类，其他类为默认类（包中类）而且Java的文件名</p>
+<p> 一定与共有类名一致，如果没有共有类，可以与任何一个类名一致</p>
+</li>
+<li><p>一般建议：一个文件一个公有类！一般不再一个文件中写多个类</p>
+</li>
+</ol>
+<p><strong> 私有的方法不能继承，也不能重写（重写建立在继承之上）</strong></p>
+<p>static：静态的<br>    智能在类内部使用，可以修饰：属性，方法，内部类，静态代码块<br>    静态修饰的成员：属于类的成员，是全体类实例共享的资源<br>    静态属性：只有一份，全体实例共享类似于全局变量<br>    静态方法：属于类的方法，使用类名直接调用，不需要创建对象，没有隐含参数this，不能访问当前对象资源<br>    静态代码块：在类加载期间执行，只执行一次，可以用于资源加载</p>
+<p>final：最终的，可以修饰：类，方法，变量（属性，局部变量）<br>    final的类：不能再被继承<br>    final的方法：不能再被重写<br>    final的方法和类，阻止了  动态代理模式<br>    动态代理模式：广泛的应用在：Spring Hibernate Struts2<br>    一般不使用final类和方法<br>    final变量：智能初始化一次，不能再被修改</p>
+<p>常量：public static final double PI=3.14</p>
+<p>对象数组</p>
+
+      
+    
     </div>
     
-  <nav class="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2018/page/2/">2</a><a class="extend next" rel="next" href="/archives/2018/page/2/">下一页 ></a>
+      
+      
+    
+  </article>
+  
+    
+  <nav class="article-page">
+    
+      <a href="/2018/03/05/java抽象类/" id="art-left" class="art-left">
+        <span class="next-title">
+          <i class="iconfont icon-left"></i>java抽象类
+        </span>
+      </a>
+    
+    
+      <a href="/2018/03/05/java程序结构/" id="art-right" class="art-right">
+        <span class="prev-title"> 
+          java程序结构<i class="iconfont icon-right"></i>  
+        </span>
+      </a>
+    
   </nav>
 
+    
+  <i id="com-switch" class="iconfont icon-more jumping-in long infinite" style="font-size:24px;display:block;text-align:center;transform:rotate(180deg);"></i>
+  <div class="post-comments" id="post-comments" style="display: block;margin: auto 16px;">
+    
+    
+    
+
+  </div>
+
+
+  
+   
+    
+  
+  <aside class="post-toc">
+    <span class="title" id="toc-switch"><span>文章导航</span></span>
+    <div class="toc-inner syuanpi back-1 fallIn-light">
+      <li class="title-link"><a href="javascript:;" class="toTop">java访问控制</a></li>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#访问控制："><span class="toc-text">访问控制：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Java文件规则："><span class="toc-text">Java文件规则：</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </aside>
+
+
+  
 
 
         </div>

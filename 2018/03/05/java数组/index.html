@@ -51,11 +51,7 @@
 
 
 
-  <title>
-  
-    归档 · 努力努力再努力
-  
-</title>
+  <title> java数组 · 努力努力再努力 </title>
 </head>
 <body>
   <div class="progress">
@@ -226,207 +222,94 @@
         <div class="main-wrapper">
           
     
-    <div class="archive syuanpi riseIn-light" id="archive">
-        
-            <h1 class="archive-title">Total</h1>
-            <span class="archive-num">一共有 11 篇文章</span>
-        
-        <div class="archive-list">
-            <ul>
-        
+  <article class="
+  post
+   is_post 
+  ">
+    <header class="post-header">
+      <div class="post-time syuanpi riseIn-light back-1">
+        <div class="post-time-wrapper">
+          <span>2018-03-05</span>
+          
+          
             
-                
-                
-                
-                    
-                     
-                        <h2 class="archive-year"> 2018 </h2>
-                    
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    03-05
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/03/05/异常检测技术/">异常检测技术</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    03-05
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/03/05/elk使用：kibana使用/">elk使用：kibana使用</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    03-05
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/03/05/java循环/">java循环</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    03-05
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/03/05/java数组/">java数组</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    03-05
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/03/05/java抽象类/">java抽象类</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    03-05
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/03/05/java访问控制/">java访问控制</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    03-05
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/03/05/java程序结构/">java程序结构</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    03-05
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/03/05/java对象/">java对象</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    02-28
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/02/28/Ubuntu-后台运行程序/">Ubuntu 后台运行程序</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    02-28
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/02/28/远程服务器运行matlab/">远程服务器运行matlab</a>
-                </span>
-            </li>
-
-        
-            </ul>
+          
         </div>
+      </div>
+      <h1 class="post-title syuanpi riseIn-light back-2">
+        
+          java数组
+        
+      </h1>
+    </header>
+    <div class="post-content syuanpi riseIn-light back-3">
+      
+        <h4 id="Java方法"><a href="#Java方法" class="headerlink" title="Java方法"></a>Java方法</h4><p>算法，封装一个算法或一个功能</p>
+<p>API常用的方法：<br>java.lang.Math包内<br>Math  : sqrt() sin() cos() tg() pow(x,y)计算x的y次方———Java DOC手册<br>java.util.Arrays保内<br>Arrays ：sort（） toString（） equals（） binarySearch（）</p>
+<h2 id="数组的复制与扩容"><a href="#数组的复制与扩容" class="headerlink" title="数组的复制与扩容"></a>数组的复制与扩容</h2><pre><code>数组变量的赋值，是并不会复制数组对象，是两个变量引用了同一个数组对象。
+数组的复制的本质：创建新数组，将原数组的内容复制过来
+扩容：创建新数组，新数组容量大于原数组，，将原数组的内容复制到新数组，并丢弃原数组，简单来说，就是
+更换更大的数组对象
+
+java API：StringBuilder ArrayList。。。
+字符串链接运算
+</code></pre><h3 id="排序算法：目的是多多联系for和数组操作"><a href="#排序算法：目的是多多联系for和数组操作" class="headerlink" title="排序算法：目的是多多联系for和数组操作"></a>排序算法：目的是多多联系for和数组操作</h3><pre><code>冒泡排序：比较相邻元素，大者下沉
+
+Arrays 数组工具类
+</code></pre><p>​<br>递归调用：方法中调用方法本身<br>    递归解决问题：简练，只需考虑一层逻辑即可！但是需要有经验<br>    一定有结束条件</p>
+<p>二进制基础</p>
+
+      
+    
     </div>
     
-  <nav class="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2018/page/2/">2</a><a class="extend next" rel="next" href="/archives/2018/page/2/">下一页 ></a>
+      
+      
+    
+  </article>
+  
+    
+  <nav class="article-page">
+    
+      <a href="/2018/03/05/java循环/" id="art-left" class="art-left">
+        <span class="next-title">
+          <i class="iconfont icon-left"></i>java循环
+        </span>
+      </a>
+    
+    
+      <a href="/2018/03/05/java抽象类/" id="art-right" class="art-right">
+        <span class="prev-title"> 
+          java抽象类<i class="iconfont icon-right"></i>  
+        </span>
+      </a>
+    
   </nav>
 
+    
+  <i id="com-switch" class="iconfont icon-more jumping-in long infinite" style="font-size:24px;display:block;text-align:center;transform:rotate(180deg);"></i>
+  <div class="post-comments" id="post-comments" style="display: block;margin: auto 16px;">
+    
+    
+    
+
+  </div>
+
+
+  
+   
+    
+  
+  <aside class="post-toc">
+    <span class="title" id="toc-switch"><span>文章导航</span></span>
+    <div class="toc-inner syuanpi back-1 fallIn-light">
+      <li class="title-link"><a href="javascript:;" class="toTop">java数组</a></li>
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Java方法"><span class="toc-text">Java方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数组的复制与扩容"><span class="toc-text">数组的复制与扩容</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#排序算法：目的是多多联系for和数组操作"><span class="toc-text">排序算法：目的是多多联系for和数组操作</span></a>
+    </div>
+  </aside>
+
+
+  
 
 
         </div>

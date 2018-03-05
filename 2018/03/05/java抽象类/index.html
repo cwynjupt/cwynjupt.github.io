@@ -51,11 +51,7 @@
 
 
 
-  <title>
-  
-    归档 · 努力努力再努力
-  
-</title>
+  <title> java抽象类 · 努力努力再努力 </title>
 </head>
 <body>
   <div class="progress">
@@ -226,207 +222,96 @@
         <div class="main-wrapper">
           
     
-    <div class="archive syuanpi riseIn-light" id="archive">
-        
-            <h1 class="archive-title">Total</h1>
-            <span class="archive-num">一共有 11 篇文章</span>
-        
-        <div class="archive-list">
-            <ul>
-        
+  <article class="
+  post
+   is_post 
+  ">
+    <header class="post-header">
+      <div class="post-time syuanpi riseIn-light back-1">
+        <div class="post-time-wrapper">
+          <span>2018-03-05</span>
+          
+          
             
-                
-                
-                
-                    
-                     
-                        <h2 class="archive-year"> 2018 </h2>
-                    
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    03-05
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/03/05/异常检测技术/">异常检测技术</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    03-05
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/03/05/elk使用：kibana使用/">elk使用：kibana使用</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    03-05
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/03/05/java循环/">java循环</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    03-05
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/03/05/java数组/">java数组</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    03-05
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/03/05/java抽象类/">java抽象类</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    03-05
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/03/05/java访问控制/">java访问控制</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    03-05
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/03/05/java程序结构/">java程序结构</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    03-05
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/03/05/java对象/">java对象</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    02-28
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/02/28/Ubuntu-后台运行程序/">Ubuntu 后台运行程序</a>
-                </span>
-            </li>
-
-        
-            
-                
-                
-                
-            
-            
-            <li class="archive-post">
-                <span class="archive-post-time">
-                
-                    02-28
-                
-                </span>
-                <span class="archive-post-link">
-                    <a href="/2018/02/28/远程服务器运行matlab/">远程服务器运行matlab</a>
-                </span>
-            </li>
-
-        
-            </ul>
+          
         </div>
+      </div>
+      <h1 class="post-title syuanpi riseIn-light back-2">
+        
+          java抽象类
+        
+      </h1>
+    </header>
+    <div class="post-content syuanpi riseIn-light back-3">
+      
+        <h2 id="抽象类："><a href="#抽象类：" class="headerlink" title="抽象类："></a>抽象类：</h2><pre><code>抽象方法：只有方法名和参数列表，没有方法体
+Timer类约定：在适合的时候调用TimerTask的抽象方法 run（）
+抽象类智能被继承
+具体类继承抽象类时候必须重写全部抽象方法
+</code></pre><h3 id="接口："><a href="#接口：" class="headerlink" title="接口："></a>接口：</h3><pre><code>相当于所有方法都是抽象方法，所有属性都是常量的抽象类
+接口智能声明常量和抽象方法
+可以定义变量，可以引用实现类的实例
+不能直接实例化
+必须实现全部的抽象方法：接口约定了具体类的方法，约定了类的外部行为
+可以继承接口
+类可以实现多个接口，接口和实现类是父子关系
+
+接口实现软件组件之间的组装关系
+</code></pre><h3 id="内部类：定义到类内部，一般用于封装类的定义，内部类可以共享外部类的属性和方法"><a href="#内部类：定义到类内部，一般用于封装类的定义，内部类可以共享外部类的属性和方法" class="headerlink" title="内部类：定义到类内部，一般用于封装类的定义，内部类可以共享外部类的属性和方法"></a>内部类：定义到类内部，一般用于封装类的定义，内部类可以共享外部类的属性和方法</h3><pre><code>定时器任务的实现，经常采用内部类实现
+</code></pre><h3 id="匿名内部类：new-类名-（参数）"><a href="#匿名内部类：new-类名-（参数）" class="headerlink" title="匿名内部类：new 类名 （参数）"></a>匿名内部类：new 类名 （参数）</h3><pre><code>继承父类同时实例化为子类对象，没有子类类名
+可以继承类，可以继承抽象类，可以实现接口
+</code></pre>
+      
+    
     </div>
     
-  <nav class="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2018/page/2/">2</a><a class="extend next" rel="next" href="/archives/2018/page/2/">下一页 ></a>
+      
+      
+    
+  </article>
+  
+    
+  <nav class="article-page">
+    
+      <a href="/2018/03/05/java数组/" id="art-left" class="art-left">
+        <span class="next-title">
+          <i class="iconfont icon-left"></i>java数组
+        </span>
+      </a>
+    
+    
+      <a href="/2018/03/05/java访问控制/" id="art-right" class="art-right">
+        <span class="prev-title"> 
+          java访问控制<i class="iconfont icon-right"></i>  
+        </span>
+      </a>
+    
   </nav>
 
+    
+  <i id="com-switch" class="iconfont icon-more jumping-in long infinite" style="font-size:24px;display:block;text-align:center;transform:rotate(180deg);"></i>
+  <div class="post-comments" id="post-comments" style="display: block;margin: auto 16px;">
+    
+    
+    
+
+  </div>
+
+
+  
+   
+    
+  
+  <aside class="post-toc">
+    <span class="title" id="toc-switch"><span>文章导航</span></span>
+    <div class="toc-inner syuanpi back-1 fallIn-light">
+      <li class="title-link"><a href="javascript:;" class="toTop">java抽象类</a></li>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#抽象类："><span class="toc-text">抽象类：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#接口："><span class="toc-text">接口：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内部类：定义到类内部，一般用于封装类的定义，内部类可以共享外部类的属性和方法"><span class="toc-text">内部类：定义到类内部，一般用于封装类的定义，内部类可以共享外部类的属性和方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#匿名内部类：new-类名-（参数）"><span class="toc-text">匿名内部类：new 类名 （参数）</span></a></li></ol></li></ol>
+    </div>
+  </aside>
+
+
+  
 
 
         </div>
