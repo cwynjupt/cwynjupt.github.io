@@ -94,16 +94,17 @@
 
 
 
-<meta name="description" content="cwy&apos;s blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="努力努力再努力">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta name="description" content="基于主元分析的故障检测与诊断（PCA）通过降低原始数据的空间维度，从新的隐式变量中提取主要的信息和特征，足以反映原始数据的信息和变化。  第一步是提取主元模型：将历史数据收集起来，将数据进行标准化，  应用PCA。前k个主元$y_n$对应的为normal space（$s_n$）,后面n-k个主元$y_a$对应的为abnormal space($s_a$)。 $y = y_a + y_n$ $C_">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PCA故障检测">
+<meta property="og:url" content="http://yoursite.com/2018/04/13/PCA故障检测/index.html">
 <meta property="og:site_name" content="努力努力再努力">
-<meta property="og:description" content="cwy&apos;s blog">
+<meta property="og:description" content="基于主元分析的故障检测与诊断（PCA）通过降低原始数据的空间维度，从新的隐式变量中提取主要的信息和特征，足以反映原始数据的信息和变化。  第一步是提取主元模型：将历史数据收集起来，将数据进行标准化，  应用PCA。前k个主元$y_n$对应的为normal space（$s_n$）,后面n-k个主元$y_a$对应的为abnormal space($s_a$)。 $y = y_a + y_n$ $C_">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-04-13T07:52:40.545Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="努力努力再努力">
-<meta name="twitter:description" content="cwy&apos;s blog">
+<meta name="twitter:title" content="PCA故障检测">
+<meta name="twitter:description" content="基于主元分析的故障检测与诊断（PCA）通过降低原始数据的空间维度，从新的隐式变量中提取主要的信息和特征，足以反映原始数据的信息和变化。  第一步是提取主元模型：将历史数据收集起来，将数据进行标准化，  应用PCA。前k个主元$y_n$对应的为normal space（$s_n$）,后面n-k个主元$y_a$对应的为abnormal space($s_a$)。 $y = y_a + y_n$ $C_">
 
 
 
@@ -132,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/page/2/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/13/PCA故障检测/"/>
 
 
 
 
 
-  <title>努力努力再努力</title>
+  <title>PCA故障检测 | 努力努力再努力</title>
   
 
 
@@ -163,9 +164,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -258,9 +257,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -273,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/03/05/java对象/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/13/PCA故障检测/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈文燕">
@@ -290,9 +289,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/03/05/java对象/" itemprop="url">java对象</a></h1>
+          <h1 class="post-title" itemprop="name headline">PCA故障检测</h1>
         
 
         <div class="post-meta">
@@ -304,8 +301,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-03-05T16:07:36+08:00">
-                2016-03-05
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-13T15:51:56+08:00">
+                2018-04-13
               </time>
             
 
@@ -342,20 +339,39 @@
       
 
       
-        
-          <h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><pre><code>引用本身不是对象，引用指代了对象
-引用的值是对象的地址值，通过地址引用对象
-引用的值不是对象
-引用变量在运行期间动态绑定到对象
-</code></pre><p><strong>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/03/05/java对象/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <h2 id="基于主元分析的故障检测与诊断（PCA）"><a href="#基于主元分析的故障检测与诊断（PCA）" class="headerlink" title="基于主元分析的故障检测与诊断（PCA）"></a>基于主元分析的故障检测与诊断（PCA）</h2><p>通过降低原始数据的空间维度，从新的隐式变量中提取主要的信息和特征，足以反映原始数据的信息和变化。</p>
+<ol>
+<li><p>第一步是提取主元模型：将历史数据收集起来，将数据进行标准化，</p>
+</li>
+<li><p>应用PCA。前k个主元$y_n$对应的为normal space（$s_n$）,后面n-k个主元$y_a$对应的为abnormal space($s_a$)。</p>
+<p>$y = y_a + y_n$</p>
+<p>$C_n = PP^T, C_a = I-C_n$</p>
+<p>$y_n = PP^Ty = C_ny, y_a = (I-PP^T)y = C_ay$</p>
+<p>其中$P=[v_1, v_2, …, v_k]$</p>
+</li>
+<li><p>统计量的确定</p>
+<ol>
+<li><p>平方预测误差（SPE）：</p>
+<p>　统计量SPE 在i 时刻的值是个标量, 它表示此时刻测量值Xi 对主元模型的偏离程度, 是模型外部数据变化的一种测度。SPE 统计量也被称为Q 统计量。对第i 个采样：</p>
+<p>$Q_i =e_ie^T_i =X_i (I -P_kP_k^T )X^T$</p>
+<p>当检测水平为$\alpha$ 时，控制限如下计算：</p>
+<p>$Q_\alpha = Q_1[\frac{C_\alpha h_0 (2\Theta_2)^{1/2} }{\Theta_1} + 1 + \frac{\Theta_2 h_0 (h_0 - 1)}{\Theta_2} ] ^ {1/h_0}$</p>
+<p>where $\Theta_i = \sum_{j=k+1}^{n} \lambda_j ^ i , (i = 1,2,3)$  and $h_0 = 1-2\Theta_1 \Theta_3 / (3\Theta_2 ^ 2)$</p>
+<p>if $SPE = \left|\left| C_a y \right| \right|^2 &gt; Q_\alpha$, Then there is abnomal</p>
+</li>
+<li><p>Hotelling $T^2$ 图:</p>
+<p>　Hotelling T2 图是得分向量的标准平方和, 指示每个采样在变化趋势和幅值上偏离模型的程度。$T^2$ 表征PCA 模型内部变化的一种测度。对于第i 个时刻过程变量向量Xi , $T^2$ 统计量的定义为</p>
+<p>$T^2_i =t_i λ^{-1}t^T_i =X_iPλ^{-1}P^TX^T_i$</p>
+<p>式中, tk 是Tk 矩阵中的第i 行;Tk 由构成主元模型的k 个主元的得分向量所组成;λ是由与前k 个<br>主元所对应的特征值所组成的对角均值。</p>
+<p>$T^2$ 统计量的控制限可以利用F 分布按下式进行计算。</p>
+<p>$T^2_{k , m , α}=\frac{k(m -1)}{m -k}F_{k , m-1 , α}$</p>
+<p>式中, m 是样本个数;k 是所保留的主元个数;α是检验水平;$F_{k , m -1 , α}$是对应于检验水平为α, 自由度为k , m -1 条件下的F 分布的临界值。若$T^2 &lt;T^2_{k , m , α}$, 则表明该时刻T2 统计正常。</p>
+<p>​</p>
+</li>
+</ol>
+</li>
+</ol>
+
       
     </div>
     
@@ -372,12 +388,28 @@
       
 
       
+      
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/28/Ubuntu-后台运行程序/" rel="next" title="Ubuntu 后台运行程序">
+                <i class="fa fa-chevron-left"></i> Ubuntu 后台运行程序
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
 
       
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -387,14 +419,11 @@
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -402,6 +431,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -422,8 +455,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -467,6 +509,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基于主元分析的故障检测与诊断（PCA）"><span class="nav-number">1.</span> <span class="nav-text">基于主元分析的故障检测与诊断（PCA）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -580,10 +638,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 

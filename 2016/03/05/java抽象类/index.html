@@ -94,17 +94,17 @@
 
 
 
-<meta name="description" content="Java方法算法，封装一个算法或一个功能 API常用的方法：java.lang.Math包内Math  : sqrt() sin() cos() tg() pow(x,y)计算x的y次方———Java DOC手册java.util.Arrays保内Arrays ：sort（） toString（） equals（） binarySearch（）">
+<meta name="description" content="抽象类：抽象方法：只有方法名和参数列表，没有方法体 Timer类约定：在适合的时候调用TimerTask的抽象方法 run（） 抽象类智能被继承 具体类继承抽象类时候必须重写全部抽象方法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java数组">
-<meta property="og:url" content="http://yoursite.com/2018/03/05/java数组/index.html">
+<meta property="og:title" content="java抽象类">
+<meta property="og:url" content="http://yoursite.com/2016/03/05/java抽象类/index.html">
 <meta property="og:site_name" content="努力努力再努力">
-<meta property="og:description" content="Java方法算法，封装一个算法或一个功能 API常用的方法：java.lang.Math包内Math  : sqrt() sin() cos() tg() pow(x,y)计算x的y次方———Java DOC手册java.util.Arrays保内Arrays ：sort（） toString（） equals（） binarySearch（）">
+<meta property="og:description" content="抽象类：抽象方法：只有方法名和参数列表，没有方法体 Timer类约定：在适合的时候调用TimerTask的抽象方法 run（） 抽象类智能被继承 具体类继承抽象类时候必须重写全部抽象方法">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-05T08:49:26.451Z">
+<meta property="og:updated_time" content="2018-04-13T07:53:44.054Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java数组">
-<meta name="twitter:description" content="Java方法算法，封装一个算法或一个功能 API常用的方法：java.lang.Math包内Math  : sqrt() sin() cos() tg() pow(x,y)计算x的y次方———Java DOC手册java.util.Arrays保内Arrays ：sort（） toString（） equals（） binarySearch（）">
+<meta name="twitter:title" content="java抽象类">
+<meta name="twitter:description" content="抽象类：抽象方法：只有方法名和参数列表，没有方法体 Timer类约定：在适合的时候调用TimerTask的抽象方法 run（） 抽象类智能被继承 具体类继承抽象类时候必须重写全部抽象方法">
 
 
 
@@ -133,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/05/java数组/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/03/05/java抽象类/"/>
 
 
 
 
 
-  <title>java数组 | 努力努力再努力</title>
+  <title>java抽象类 | 努力努力再努力</title>
   
 
 
@@ -272,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/05/java数组/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/03/05/java抽象类/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈文燕">
@@ -289,7 +289,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">java数组</h1>
+          <h1 class="post-title" itemprop="name headline">java抽象类</h1>
         
 
         <div class="post-meta">
@@ -301,8 +301,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-05T16:08:33+08:00">
-                2018-03-05
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-03-05T16:08:22+08:00">
+                2016-03-05
               </time>
             
 
@@ -339,21 +339,24 @@
       
 
       
-        <h4 id="Java方法"><a href="#Java方法" class="headerlink" title="Java方法"></a>Java方法</h4><p>算法，封装一个算法或一个功能</p>
-<p>API常用的方法：<br>java.lang.Math包内<br>Math  : sqrt() sin() cos() tg() pow(x,y)计算x的y次方———Java DOC手册<br>java.util.Arrays保内<br>Arrays ：sort（） toString（） equals（） binarySearch（）<a id="more"></a></p>
-<h2 id="数组的复制与扩容"><a href="#数组的复制与扩容" class="headerlink" title="数组的复制与扩容"></a>数组的复制与扩容</h2><pre><code>数组变量的赋值，是并不会复制数组对象，是两个变量引用了同一个数组对象。
-数组的复制的本质：创建新数组，将原数组的内容复制过来
-扩容：创建新数组，新数组容量大于原数组，，将原数组的内容复制到新数组，并丢弃原数组，简单来说，就是
-更换更大的数组对象
+        <h2 id="抽象类："><a href="#抽象类：" class="headerlink" title="抽象类："></a>抽象类：</h2><pre><code>抽象方法：只有方法名和参数列表，没有方法体
+Timer类约定：在适合的时候调用TimerTask的抽象方法 run（）
+抽象类智能被继承
+具体类继承抽象类时候必须重写全部抽象方法
+</code></pre><a id="more"></a>
+<h3 id="接口："><a href="#接口：" class="headerlink" title="接口："></a>接口：</h3><pre><code>相当于所有方法都是抽象方法，所有属性都是常量的抽象类
+接口智能声明常量和抽象方法
+可以定义变量，可以引用实现类的实例
+不能直接实例化
+必须实现全部的抽象方法：接口约定了具体类的方法，约定了类的外部行为
+可以继承接口
+类可以实现多个接口，接口和实现类是父子关系
 
-java API：StringBuilder ArrayList。。。
-字符串链接运算
-</code></pre><h3 id="排序算法：目的是多多联系for和数组操作"><a href="#排序算法：目的是多多联系for和数组操作" class="headerlink" title="排序算法：目的是多多联系for和数组操作"></a>排序算法：目的是多多联系for和数组操作</h3><pre><code>冒泡排序：比较相邻元素，大者下沉
-
-Arrays 数组工具类
-</code></pre><p>​<br>递归调用：方法中调用方法本身<br>    递归解决问题：简练，只需考虑一层逻辑即可！但是需要有经验<br>    一定有结束条件</p>
-<p>二进制基础</p>
-
+接口实现软件组件之间的组装关系
+</code></pre><h3 id="内部类：定义到类内部，一般用于封装类的定义，内部类可以共享外部类的属性和方法"><a href="#内部类：定义到类内部，一般用于封装类的定义，内部类可以共享外部类的属性和方法" class="headerlink" title="内部类：定义到类内部，一般用于封装类的定义，内部类可以共享外部类的属性和方法"></a>内部类：定义到类内部，一般用于封装类的定义，内部类可以共享外部类的属性和方法</h3><pre><code>定时器任务的实现，经常采用内部类实现
+</code></pre><h3 id="匿名内部类：new-类名-（参数）"><a href="#匿名内部类：new-类名-（参数）" class="headerlink" title="匿名内部类：new 类名 （参数）"></a>匿名内部类：new 类名 （参数）</h3><pre><code>继承父类同时实例化为子类对象，没有子类类名
+可以继承类，可以继承抽象类，可以实现接口
+</code></pre>
       
     </div>
     
@@ -377,8 +380,8 @@ Arrays 数组工具类
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/05/java抽象类/" rel="next" title="java抽象类">
-                <i class="fa fa-chevron-left"></i> java抽象类
+              <a href="/2016/03/05/java访问控制/" rel="next" title="java访问控制">
+                <i class="fa fa-chevron-left"></i> java访问控制
               </a>
             
           </div>
@@ -387,8 +390,8 @@ Arrays 数组工具类
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/05/java循环/" rel="prev" title="java循环">
-                java循环 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/03/05/java数组/" rel="prev" title="java数组">
+                java数组 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -505,7 +508,7 @@ Arrays 数组工具类
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Java方法"><span class="nav-number">1.</span> <span class="nav-text">Java方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组的复制与扩容"><span class="nav-number"></span> <span class="nav-text">数组的复制与扩容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#排序算法：目的是多多联系for和数组操作"><span class="nav-number"></span> <span class="nav-text">排序算法：目的是多多联系for和数组操作</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#抽象类："><span class="nav-number">1.</span> <span class="nav-text">抽象类：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#接口："><span class="nav-number">1.1.</span> <span class="nav-text">接口：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内部类：定义到类内部，一般用于封装类的定义，内部类可以共享外部类的属性和方法"><span class="nav-number">1.2.</span> <span class="nav-text">内部类：定义到类内部，一般用于封装类的定义，内部类可以共享外部类的属性和方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#匿名内部类：new-类名-（参数）"><span class="nav-number">1.3.</span> <span class="nav-text">匿名内部类：new 类名 （参数）</span></a></li></ol></li></ol></div>
             
 
           </div>

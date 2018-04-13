@@ -273,7 +273,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/05/异常检测技术/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/13/PCA故障检测/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈文燕">
@@ -292,7 +292,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/03/05/异常检测技术/" itemprop="url">异常检测技术</a></h1>
+                <a class="post-title-link" href="/2018/04/13/PCA故障检测/" itemprop="url">PCA故障检测</a></h1>
         
 
         <div class="post-meta">
@@ -304,132 +304,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-05T16:35:29+08:00">
-                2018-03-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="基于概率模型的方法"><a href="#基于概率模型的方法" class="headerlink" title="基于概率模型的方法"></a>基于概率模型的方法</h2><p>基于<strong>概率</strong>模型进行异常检测，考虑了统计模型：高斯分布。使用高斯分布的原理是：当某个事件发生概率非常低时，这个事件被视为是异常。对于一维数据，某个事件如果位于3sigma之外， 则该事件为异常；
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/05/异常检测技术/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/05/java循环/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈文燕">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="努力努力再努力">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/05/java循环/" itemprop="url">java循环</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-05T16:08:39+08:00">
-                2018-03-05
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-13T15:51:56+08:00">
+                2018-04-13
               </time>
             
 
@@ -468,646 +344,40 @@
       
         
           
-            <h3 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h3><p>for的灵活应用：</p>
-<ul>
-<li>for(;;)是死循环，与while（true）一样，在死循环中利用break来结束循环过程</li>
-<li>for（；布尔表达式；）与while（布尔表达式一致）</li>
-</ul>
-<p>continue：继续 继续当前循环；或重新开始当前循环<br>break：打断，打断当前循环，结束当前循环</p>
+            <h2 id="基于主元分析的故障检测与诊断（PCA）"><a href="#基于主元分析的故障检测与诊断（PCA）" class="headerlink" title="基于主元分析的故障检测与诊断（PCA）"></a>基于主元分析的故障检测与诊断（PCA）</h2><p>通过降低原始数据的空间维度，从新的隐式变量中提取主要的信息和特征，足以反映原始数据的信息和变化。</p>
+<ol>
+<li><p>第一步是提取主元模型：将历史数据收集起来，将数据进行标准化，</p>
+</li>
+<li><p>应用PCA。前k个主元$y_n$对应的为normal space（$s_n$）,后面n-k个主元$y_a$对应的为abnormal space($s_a$)。</p>
+<p>$y = y_a + y_n$</p>
+<p>$C_n = PP^T, C_a = I-C_n$</p>
+<p>$y_n = PP^Ty = C_ny, y_a = (I-PP^T)y = C_ay$</p>
+<p>其中$P=[v_1, v_2, …, v_k]$</p>
+</li>
+<li><p>统计量的确定</p>
+<ol>
+<li><p>平方预测误差（SPE）：</p>
+<p>　统计量SPE 在i 时刻的值是个标量, 它表示此时刻测量值Xi 对主元模型的偏离程度, 是模型外部数据变化的一种测度。SPE 统计量也被称为Q 统计量。对第i 个采样：</p>
+<p>$Q_i =e_ie^T_i =X_i (I -P_kP_k^T )X^T$</p>
+<p>当检测水平为$\alpha$ 时，控制限如下计算：</p>
+<p>$Q_\alpha = Q_1[\frac{C_\alpha h_0 (2\Theta_2)^{1/2} }{\Theta_1} + 1 + \frac{\Theta_2 h_0 (h_0 - 1)}{\Theta_2} ] ^ {1/h_0}$</p>
+<p>where $\Theta_i = \sum_{j=k+1}^{n} \lambda_j ^ i , (i = 1,2,3)$  and $h_0 = 1-2\Theta_1 \Theta_3 / (3\Theta_2 ^ 2)$</p>
+<p>if $SPE = \left|\left| C_a y \right| \right|^2 &gt; Q_\alpha$, Then there is abnomal</p>
+</li>
+<li><p>Hotelling $T^2$ 图:</p>
+<p>　Hotelling T2 图是得分向量的标准平方和, 指示每个采样在变化趋势和幅值上偏离模型的程度。$T^2$ 表征PCA 模型内部变化的一种测度。对于第i 个时刻过程变量向量Xi , $T^2$ 统计量的定义为</p>
+<p>$T^2_i =t_i λ^{-1}t^T_i =X_iPλ^{-1}P^TX^T_i$</p>
+<p>式中, tk 是Tk 矩阵中的第i 行;Tk 由构成主元模型的k 个主元的得分向量所组成;λ是由与前k 个<br>主元所对应的特征值所组成的对角均值。</p>
+<p>$T^2$ 统计量的控制限可以利用F 分布按下式进行计算。</p>
+<p>$T^2_{k , m , α}=\frac{k(m -1)}{m -k}F_{k , m-1 , α}$</p>
+<p>式中, m 是样本个数;k 是所保留的主元个数;α是检验水平;$F_{k , m -1 , α}$是对应于检验水平为α, 自由度为k , m -1 条件下的F 分布的临界值。若$T^2 &lt;T^2_{k , m , α}$, 则表明该时刻T2 统计正常。</p>
+<p>​</p>
+</li>
+</ol>
+</li>
+</ol>
 
           
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/05/java数组/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈文燕">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="努力努力再努力">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/05/java数组/" itemprop="url">java数组</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-05T16:08:33+08:00">
-                2018-03-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="Java方法"><a href="#Java方法" class="headerlink" title="Java方法"></a>Java方法</h4><p>算法，封装一个算法或一个功能</p>
-<p>API常用的方法：<br>java.lang.Math包内<br>Math  : sqrt() sin() cos() tg() pow(x,y)计算x的y次方———Java DOC手册<br>java.util.Arrays保内<br>Arrays ：sort（） toString（） equals（） binarySearch（）
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/05/java数组/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/05/java抽象类/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈文燕">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="努力努力再努力">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/05/java抽象类/" itemprop="url">java抽象类</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-05T16:08:22+08:00">
-                2018-03-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="抽象类："><a href="#抽象类：" class="headerlink" title="抽象类："></a>抽象类：</h2><pre><code>抽象方法：只有方法名和参数列表，没有方法体
-Timer类约定：在适合的时候调用TimerTask的抽象方法 run（）
-抽象类智能被继承
-具体类继承抽象类时候必须重写全部抽象方法
-</code></pre>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/05/java抽象类/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/05/java访问控制/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈文燕">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="努力努力再努力">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/05/java访问控制/" itemprop="url">java访问控制</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-05T16:08:03+08:00">
-                2018-03-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="访问控制："><a href="#访问控制：" class="headerlink" title="访问控制："></a>访问控制：</h2><pre><code>封装，将数据封装到类的内部；将算法封装到方法中
-封装结果：存在但是不可见
-</code></pre><p>public：任何位置可见，修饰：属性、类、方法、内部类；跨包访问类，需要使用import语句导入</p>
-<p>protected：当前包可见，子类中可见；修饰：类的成员（只能在类体中使用），包括：属性、方法、内部类<br>默认的：当前包内部可见，就是没有任何修饰词；修饰:类、属性、方法、内部类等，在实际项目中很使用</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/05/java访问控制/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/05/java程序结构/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈文燕">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="努力努力再努力">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/05/java程序结构/" itemprop="url">java程序结构</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-05T16:07:49+08:00">
-                2018-03-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="Java程序结构"><a href="#Java程序结构" class="headerlink" title="Java程序结构"></a>Java程序结构</h1><p><code>package demo.day01;</code>    //必须是小写字母，多个单词用.隔开<br><code>import Java.util.Scanner;</code>   //java API 一定在当前库存在<br><code>public class HelloWorld{</code>  //类名每个单词首字母大写
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/05/java程序结构/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/05/java对象/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈文燕">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="努力努力再努力">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/05/java对象/" itemprop="url">java对象</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-05T16:07:36+08:00">
-                2018-03-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><pre><code>引用本身不是对象，引用指代了对象
-引用的值是对象的地址值，通过地址引用对象
-引用的值不是对象
-引用变量在运行期间动态绑定到对象
-</code></pre><p><strong>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/05/java对象/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -1405,7 +675,7 @@ Timer类约定：在适合的时候调用TimerTask的抽象方法 run（）
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/28/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/05/异常检测技术/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈文燕">
@@ -1424,7 +694,7 @@ Timer类约定：在适合的时候调用TimerTask的抽象方法 run（）
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/02/28/hello-world/" itemprop="url">Hello World</a></h1>
+                <a class="post-title-link" href="/2017/07/05/异常检测技术/" itemprop="url">异常检测技术</a></h1>
         
 
         <div class="post-meta">
@@ -1436,8 +706,8 @@ Timer类约定：在适合的时候调用TimerTask的抽象方法 run（）
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-28T10:53:19+08:00">
-                2018-02-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-05T16:35:29+08:00">
+                2017-07-05
               </time>
             
 
@@ -1475,10 +745,891 @@ Timer类约定：在适合的时候调用TimerTask的抽象方法 run（）
 
       
         
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.
+          <h2 id="基于概率模型的方法"><a href="#基于概率模型的方法" class="headerlink" title="基于概率模型的方法"></a>基于概率模型的方法</h2><p>基于<strong>概率</strong>模型进行异常检测，考虑了统计模型：高斯分布。使用高斯分布的原理是：当某个事件发生概率非常低时，这个事件被视为是异常。对于一维数据，某个事件如果位于3sigma之外， 则该事件为异常；
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/02/28/hello-world/#more" rel="contents">
+            <a class="btn" href="/2017/07/05/异常检测技术/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/12/ELK平台配置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈文燕">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="努力努力再努力">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/03/12/ELK平台配置/" itemprop="url">ELK平台配置</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-12T20:03:30+08:00">
+                2017-03-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="ELK平台搭建及配置"><a href="#ELK平台搭建及配置" class="headerlink" title="ELK平台搭建及配置"></a>ELK平台搭建及配置</h3><p><strong>kibana</strong> 是一个开源和免费的工具，它可以为 Logstash 和 ElasticSearch 提供的日志分析友好的 Web 界面，可以帮助您汇总、分析和搜索重要数据日志。</p>
+<p><strong>Filebeat</strong>隶属于Beats。目前Beats包含四种工具：</p>
+<ol>
+<li><ol>
+<li>Packetbeat（搜集网络流量数据）</li>
+<li>Topbeat（搜集系统、进程和文件系统级别的 CPU 和内存使用情况等数据）</li>
+<li>Filebeat（搜集文件数据）</li>
+<li>Winlogbeat（搜集 Windows 事件日志数据）</li>
+</ol>
+</li>
+</ol>
+<p>可以首先利用Logstash对数据进行采集以及预处理，在配置文件中规定以分隔符的方式或者正则匹配的方式对读入数据按字段进行划分并存储。Elasticsearch可以对数据进行搜索，并通过可视化工具Kibana直观展现在用户面前，甚至制成数据图表。三者相互联系，是一套十分强大的数据管理系统。</p>
+<h3 id="ELK架构图："><a href="#ELK架构图：" class="headerlink" title="ELK架构图："></a>ELK架构图：</h3><p>架构图一：</p>
+<p><img src="http://doc.yazuosoft.com/download/attachments/3019278/ELK1.png?version=1&amp;modificationDate=1513149055000&amp;api=v2" alt=""></p>
+<p>这是最简单的一种ELK架构方式。优点是搭建简单，易于上手。缺点是Logstash耗资源较大，运行占用CPU和内存高。另外没有消息队列缓存，存在数据丢失隐患。</p>
+<p>此架构由Logstash分布于各个节点上搜集相关日志、数据，并经过分析、过滤后发送给远端服务器上的Elasticsearch进行存储。Elasticsearch将数据以分片的形式压缩存储并提供多种API供用户查询，操作。用户亦可以更直观的通过配置Kibana Web方便的对日志查询，并根据数据生成报表。</p>
+<p>架构图二：</p>
+<p><img src="http://doc.yazuosoft.com/download/attachments/3019278/elk2.png?version=1&amp;modificationDate=1513149982000&amp;api=v2" alt=""></p>
+<p>此种架构引入了消息队列机制，位于各个节点上的Logstash Agent先将数据/日志传递给Kafka（或者Redis），并将队列中消息或数据间接传递给Logstash，Logstash过滤、分析后将数据传递给Elasticsearch存储。最后由Kibana将日志和数据呈现给用户。因为引入了Kafka（或者Redis）,所以即使远端Logstash server因故障停止运行，数据将会先被存储下来，从而避免数据丢失。</p>
+<p>架构图三：</p>
+<p><img src="http://doc.yazuosoft.com/download/attachments/3019278/elk3.png?version=1&amp;modificationDate=1513151239000&amp;api=v2" alt=""></p>
+<p>此种架构将收集端logstash替换为beats，更灵活，消耗资源更少，扩展性更强。同时可配置Logstash 和Elasticsearch 集群用于支持大集群系统的运维日志数据监控和查询。</p>
+<h3 id="一．ELK搭建流程（服务器环境为Ubantu系统）"><a href="#一．ELK搭建流程（服务器环境为Ubantu系统）" class="headerlink" title="一．ELK搭建流程（服务器环境为Ubantu系统）"></a><strong>一．ELK</strong>搭建流程（服务器环境为Ubantu<strong>系统）</strong></h3><h5 id="1-配置Java开发环境（配置环境变量）"><a href="#1-配置Java开发环境（配置环境变量）" class="headerlink" title="1.配置Java开发环境（配置环境变量）"></a>1.配置Java开发环境（配置环境变量）</h5><h5 id="2-安装Logstash"><a href="#2-安装Logstash" class="headerlink" title="2.安装Logstash"></a>2.安装Logstash</h5><p>下载并安装Logstash，安装logstash只需将它解压的对应目录即可，例如：/usr/local下：</p>
+<p>在这里不建议在linux环境下到官网下载，太慢，可以在Windows下下载好复制到linux里。然后解压：<code># tar –zxf logstash-2.3.4.tar.gz -C /usr/local/</code></p>
+<p>在logstash安装目录下创建一个“基本配置”测试文件，（例如：logstash-test.conf）文件内容如下：</p>
+<p><code># vi test.conf</code></p>
+<p><code>input{ stdin{}}</code></p>
+<p><code>input{ stdin{}}</code><br><code>output{stdout { codec=&gt; rubydebug}}</code></p>
+<p>在当前目录下启动logstash：<code># ./logstash -f test.conf</code><br>成功启动后，随便输入一串字符，会出现相应的ruby格式日志，说明没问题</p>
+<h5 id="3-安装elaaticsearch"><a href="#3-安装elaaticsearch" class="headerlink" title="3.安装elaaticsearch"></a>3.安装elaaticsearch</h5><p>下载Elasticsearch后，解压到对应的目录就完成Elasticsearch的安装。</p>
+<p><code># tar -zxf elasticsearch-1.6.0.tar.gz -C /usr/local/</code></p>
+<p>启动Elasticsearch： <code># /usr/local/elasticsearch-1.6.0/bin/elasticsearch</code></p>
+<p>如果使用远程连接的Linux的方式并想后台运行elasticsearch执行如下命令：<br><code># nohup /usr/local/elasticsearch-1.6.0/bin/elasticsearch &gt;nohup &amp;</code></p>
+<p>如果想要后台运行：<code>#/usr/local/elasticsearch-1.6.0/bin/elasticsearch -d</code></p>
+<p>确认elasticsearch的9200端口已监听，说明elasticsearch已成功运行<br><code># netstat -anp |grep :9200</code><br>tcp        0      0<br>:::9200                     :::*                        LISTEN      3362/java<br>接下来我们在logstash安装目录下创建一个用于测试logstash使用elasticsearch作为logstash的后端的测试文件test2.conf</p>
+<p><code># vi logstash-es-simple.conf</code></p>
+<p>input { stdin { } }<br>output {<br>   elasticsearch {hosts =&gt; “本机IP地址或者服务器ip” }</p>
+<p>   stdout { codec=&gt; rubydebug }</p>
+<p>}</p>
+<p>进入/elasticsearch/config/elasticsearch.yml,把设置ip地址命令前面的#号去掉，localhost改成本机IP或者服务器IP，设置端口号前面的#号去掉，端口号改成9200</p>
+<p>执行如下命令：<code>#/usr/local/logstash-1.5.2/bin/logstash  -f test2.conf</code></p>
+<p>输入：<code>hello logstash</code><br>如果出现<br>{<br>      “message” =&gt; “hello logstash”,<br>     “@version” =&gt; “1”,<br>   “@timestamp” =&gt;”2015-07-15T18:12:00.450Z”,<br>         “host” =&gt;”noc.vfast.com”<br>}<br>安装成功</p>
+<p>我们可以使用curl命令发送请求来查看ES是否接收到了数据：<br># curl ‘<a href="http://localhost:9200/_search?pretty&#39;" target="_blank" rel="noopener">http://localhost:9200/_search?pretty&#39;</a><br>返回结果<br>{<br>  “took”: 58,<br>“timed_out” : false,<br>“_shards” : {<br>   “total” : 5,<br>   “successful” : 5,<br>   “failed” : 0<br>  },<br>  “hits”: {<br>   “total” : 1,<br>   “max_score” : 1.0,<br>   “hits” : [ {<br>     “_index” :<br>“logstash-2015.07.15”,<br>     “_type” : “logs”,<br>     “_id” :<br>“AU6TWiixxDXYhySMyTkP”,<br>     “_score” : 1.0,<br>     “_source”:{“message”:”hellologstash”,”@version”:”1”,”@timestamp”:”2015-07-15T20:13:55.199Z”,”host”:”noc.vfast.com”}<br>    } ]<br>  }<br>}</p>
+<h5 id="4-安装kibana"><a href="#4-安装kibana" class="headerlink" title="4.安装kibana"></a>4.安装kibana</h5><p>  下载kibana后，解压到对应的目录就完成kibana的安装<br>  <code># tar -zxf kibana-4.1.1-linux-x64.tar.gz -C /usr/local/</code><br>进入/kibana/config/kibana.yml,把设置serverport命令前面的#号去掉，serverport改成5601，设置elasticsearch端口号前面的#号去掉，改成<br>elasticsearch.url: “http://本机ip或者服务器ip：9200”<br>使用<a href="http://kibanaServerIP：5601访问Kibana，登录后，首先，配置一个索引，默认，Kibana的数据被指向Elasticsearch，使用默认的logstash-*的索引名称，并且是基于时间的，点击“Create”即可。点击“Discover”，可以搜索和浏览Elasticsearch中的数据，默认搜索的是最近15分钟的数据。可以自定义选择时间。" target="_blank" rel="noopener">http://kibanaServerIP：5601访问Kibana，登录后，首先，配置一个索引，默认，Kibana的数据被指向Elasticsearch，使用默认的logstash-*的索引名称，并且是基于时间的，点击“Create”即可。点击“Discover”，可以搜索和浏览Elasticsearch中的数据，默认搜索的是最近15分钟的数据。可以自定义选择时间。</a></p>
+<p>到此，ELK平台部署和基本的测试已完成。</p>
+<p>另外，为了解决内存太小的问题：</p>
+<p>修改 bin 目录中 elasticsearch.in.sh 文件，关于Elasticsearch JVM 内存配置大小：</p>
+<p>　　<img src="file:///C:/Users/dell/AppData/Local/Temp/msohtmlclip1/01/clip_image002.gif" alt="开源实时日志处理平台ELK搭建流程">        </p>
+<p> 此处可以根据机器硬件配置情况作出适当的调整，一般情况下，此处的内存分配大小为机器物理内存的一半，同时将 ES_MIN_MEM 与 ES_MAX_MEM 配置成相同的值，这样的好处在于ES JVM大小固定，不会上下浮动，从实践效果上看可以提高 node 性能。</p>
+<p>为了解决ES中出现的“too many open files”的警告信息：</p>
+<p>检查系统允许 Elasticsearch 打开的最大文件数；查看 /etc/security/limits.conf，如果没有指定的话，默认是4096。这里应该添加如下两行：</p>
+<p>　　<img src="file:///C:/Users/dell/AppData/Local/Temp/msohtmlclip1/01/clip_image004.gif" alt="开源实时日志处理平台ELK搭建流程">        </p>
+<p>这个值可以根据需要适当的调整的更大。如此，当 Elasticsearch 中存在很多 index 的时候不会出现 Too many open files 的错误。</p>
+<p>（ ps：修改完系统文件后，需要重启服务器）</p>
+<h3 id="二．相应配置文件内容"><a href="#二．相应配置文件内容" class="headerlink" title="二．相应配置文件内容"></a><strong>二．</strong>相应配置文件内容</h3><p>在此以将test.csv中的数据导入ELK中为例：</p>
+<p>test.csv的各个字段的字段名为：</p>
+<p>time；LTE-Tdd小区；寻呼记录接收个数（个）；小区用户面上行字节数(KByte)；小区用户面下行字节数(KByte)；小区控制面上行字节数(KByte)；小区控制面下行字节数(KByte)；小区上行包数(个)；小区下行包数(个)</p>
+<p>/logstash/bin下创建配置文件tologstash.conf</p>
+<p><code>#vi tologstash.conf</code></p>
+<p>Input   #输入数据信息设置部分</p>
+<p>{</p>
+<pre><code>file     #文件类型数据    
+
+  {
+
+     path =&gt; &quot;/home/elk/data/test.csv&quot;   #导入文件路径为/home/elk/data/test.csv                
+
+     type =&gt; &quot;performance&quot;         #类型
+
+     start_position =&gt; &quot;beginning&quot;    #从文件头开始导入
+
+      sincedb_write_interval =&gt;15
+
+         codec =&gt; plain {
+
+               charset =&gt;&quot;UTF-8&quot;        #编码方式为UTF-8
+
+      }
+
+      stat_interval =&gt;2
+
+    sincedb_path =&gt; &quot;/home/elk/logstash-2.3.4/bin/db24&quot; 
+
+  }
+</code></pre><p>}</p>
+<p>filter   #过滤处理部分</p>
+<p>{</p>
+<p>   csv      #csv类型文件</p>
+<pre><code> {    
+
+      columns =&gt; [&apos;time&apos;, &apos;LTE-Tdd小区&apos;,&apos;寻呼记录接收个数（个）&apos;,&apos;小区用户面上行字节数(KByte)&apos;,&apos;小区用户面下行字节数(KByte)&apos;,&apos;小区控制面上行字节数(KByte)&apos;,&apos;小区控制面下行字节数(KByte)&apos;,&apos;小区上行包数(个)&apos;,&apos;小区下行包数(个)&apos;]    #字段名
+
+      separator =&gt; &quot;|&quot;     #分隔符为“|”
+
+       convert =&gt;{&quot;column1&quot; =&gt;&quot;date&quot;}    #字段时间的数据类型转换成时间    
+
+}                                   #默认数据类型为string 
+
+   date{       
+
+    timezone =&gt;&quot;Asia/Hong_Kong&quot;       
+
+    match =&gt;[&quot;time&quot;,&quot;YYYY/MM/ddHH:mm:ss&quot;,&quot;YYYY/MM/dd HH:mm&quot;] #匹配相应字段的时间格式                              
+
+    target =&gt;&quot;@timestamp&quot;   #将次字段设为时间戳
+
+     }
+
+     date{
+
+    timezone =&gt;&quot;Asia/Hong_Kong&quot;
+
+    match =&gt;[&quot;time&quot;,&quot;YYYY/MM/ddHH:mm:ss&quot;,&quot;YYYY/MM/dd HH:mm&quot;]
+
+    target =&gt;&quot;time&quot;   }
+</code></pre><p>}</p>
+<p>output</p>
+<p>{ </p>
+<p> elasticsearch {</p>
+<pre><code>   hosts =&gt; [&quot;192.168.1.132&quot;]     #目标elasticsearch的IP为192.168.1.132
+
+   index =&gt; &quot;data-%{type}-%{+YYYY.MM}&quot;   #索引名形式为data+类型名+年月
+
+   document_type =&gt; &quot;%{type}&quot;    #保存文件名   
+
+}
+</code></pre><p> }</p>
+<h3 id="三．数据导入"><a href="#三．数据导入" class="headerlink" title="三．数据导入"></a><strong>三．</strong>数据导入</h3><p>打开Elasticsearch和Kibana，在logstash/bin目录下开启logstash，并使用配置文件tologstash.conf将test.csv导入elasticsearch</p>
+<p><img src="file:///C:/Users/dell/AppData/Local/Temp/msohtmlclip1/01/clip_image006.jpg" alt=""></p>
+<p>导入数据完成后，在es和kibana开启的情况下，打开kibana页面，在浏览器中输入：服务器IP:5601（本例中为192.168.1.132:5601），点击settings配置索引，索引名为data，时间戳选择@timestamp，点击creat</p>
+<p><img src="file:///C:/Users/dell/AppData/Local/Temp/msohtmlclip1/01/clip_image008.jpg" alt=""></p>
+<p>完成之后就可以在discover中查看导入的数据了（注意设置右上方的时间戳时间，默认为只显示15分钟内的数据）。还可以制作各种类型的数据图表以及dashboard。</p>
+<p><img src="file:///C:/Users/dell/AppData/Local/Temp/msohtmlclip1/01/clip_image010.jpg" alt=""></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/03/05/java循环/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈文燕">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="努力努力再努力">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/03/05/java循环/" itemprop="url">java循环</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-03-05T16:08:39+08:00">
+                2016-03-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h3><p>for的灵活应用：</p>
+<ul>
+<li>for(;;)是死循环，与while（true）一样，在死循环中利用break来结束循环过程</li>
+<li>for（；布尔表达式；）与while（布尔表达式一致）</li>
+</ul>
+<p>continue：继续 继续当前循环；或重新开始当前循环<br>break：打断，打断当前循环，结束当前循环</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/03/05/java数组/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈文燕">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="努力努力再努力">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/03/05/java数组/" itemprop="url">java数组</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-03-05T16:08:33+08:00">
+                2016-03-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="Java方法"><a href="#Java方法" class="headerlink" title="Java方法"></a>Java方法</h4><p>算法，封装一个算法或一个功能</p>
+<p>API常用的方法：<br>java.lang.Math包内<br>Math  : sqrt() sin() cos() tg() pow(x,y)计算x的y次方———Java DOC手册<br>java.util.Arrays保内<br>Arrays ：sort（） toString（） equals（） binarySearch（）
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/03/05/java数组/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/03/05/java抽象类/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈文燕">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="努力努力再努力">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/03/05/java抽象类/" itemprop="url">java抽象类</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-03-05T16:08:22+08:00">
+                2016-03-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="抽象类："><a href="#抽象类：" class="headerlink" title="抽象类："></a>抽象类：</h2><pre><code>抽象方法：只有方法名和参数列表，没有方法体
+Timer类约定：在适合的时候调用TimerTask的抽象方法 run（）
+抽象类智能被继承
+具体类继承抽象类时候必须重写全部抽象方法
+</code></pre>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/03/05/java抽象类/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/03/05/java访问控制/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈文燕">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="努力努力再努力">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/03/05/java访问控制/" itemprop="url">java访问控制</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-03-05T16:08:03+08:00">
+                2016-03-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="访问控制："><a href="#访问控制：" class="headerlink" title="访问控制："></a>访问控制：</h2><pre><code>封装，将数据封装到类的内部；将算法封装到方法中
+封装结果：存在但是不可见
+</code></pre><p>public：任何位置可见，修饰：属性、类、方法、内部类；跨包访问类，需要使用import语句导入</p>
+<p>protected：当前包可见，子类中可见；修饰：类的成员（只能在类体中使用），包括：属性、方法、内部类<br>默认的：当前包内部可见，就是没有任何修饰词；修饰:类、属性、方法、内部类等，在实际项目中很使用</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/03/05/java访问控制/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/03/05/java程序结构/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈文燕">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="努力努力再努力">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/03/05/java程序结构/" itemprop="url">java程序结构</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-03-05T16:07:49+08:00">
+                2016-03-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="Java程序结构"><a href="#Java程序结构" class="headerlink" title="Java程序结构"></a>Java程序结构</h1><p><code>package demo.day01;</code>    //必须是小写字母，多个单词用.隔开<br><code>import Java.util.Scanner;</code>   //java API 一定在当前库存在<br><code>public class HelloWorld{</code>  //类名每个单词首字母大写
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/03/05/java程序结构/#more" rel="contents">
               Weiterlesen &raquo;
             </a>
           </div>
