@@ -94,17 +94,22 @@
 
 
 
-<meta name="description" content="Ubuntu后台运行程序1. 使用nohup​    nohup Command &amp;amp; ​    例如运行matlab程序： ​    nohup matlab -nodisplay -r &amp;#39;run main&amp;#39; 1&amp;gt; running.log 2&amp;gt; running.err &amp;amp; ​    需要注意的是: 在执行完这条命令后终端会返回ignoring input">
+<meta name="description" content="RNN 模型时间序列模型最常用最强大的的工具就是递归神经网络（recurrent neural network, RNN）。相比与普通神经网络的各计算结果之间相互独立的特点，RNN的每一次隐含层的计算结果都与当前输入以及上一次的隐含层结果相关。通过这种方法，RNN的计算结果便具备了记忆之前几次结果的特点。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu 后台运行程序">
-<meta property="og:url" content="http://yoursite.com/2018/02/28/Ubuntu-后台运行程序/index.html">
+<meta property="og:title" content="RNN模型">
+<meta property="og:url" content="http://yoursite.com/2018/04/17/RNN模型/index.html">
 <meta property="og:site_name" content="努力努力再努力">
-<meta property="og:description" content="Ubuntu后台运行程序1. 使用nohup​    nohup Command &amp;amp; ​    例如运行matlab程序： ​    nohup matlab -nodisplay -r &amp;#39;run main&amp;#39; 1&amp;gt; running.log 2&amp;gt; running.err &amp;amp; ​    需要注意的是: 在执行完这条命令后终端会返回ignoring input">
+<meta property="og:description" content="RNN 模型时间序列模型最常用最强大的的工具就是递归神经网络（recurrent neural network, RNN）。相比与普通神经网络的各计算结果之间相互独立的特点，RNN的每一次隐含层的计算结果都与当前输入以及上一次的隐含层结果相关。通过这种方法，RNN的计算结果便具备了记忆之前几次结果的特点。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-02-28T07:22:29.849Z">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/947235/201608/947235-20160821234331464-1137952568.png">
+<meta property="og:image" content="http://jbcdn2.b0.upaiyun.com/2016/04/4ea6e7bfcc0c1c7a1935fc6cb364fae7.png">
+<meta property="og:image" content="http://jbcdn2.b0.upaiyun.com/2016/04/c6ddb48071f17ab8ce6139c0b5ef5d16.gif">
+<meta property="og:image" content="http://jbcdn2.b0.upaiyun.com/2016/04/a29ee0ead530c88c85630d0c05f559ef.gif">
+<meta property="og:updated_time" content="2018-04-17T09:04:09.986Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ubuntu 后台运行程序">
-<meta name="twitter:description" content="Ubuntu后台运行程序1. 使用nohup​    nohup Command &amp;amp; ​    例如运行matlab程序： ​    nohup matlab -nodisplay -r &amp;#39;run main&amp;#39; 1&amp;gt; running.log 2&amp;gt; running.err &amp;amp; ​    需要注意的是: 在执行完这条命令后终端会返回ignoring input">
+<meta name="twitter:title" content="RNN模型">
+<meta name="twitter:description" content="RNN 模型时间序列模型最常用最强大的的工具就是递归神经网络（recurrent neural network, RNN）。相比与普通神经网络的各计算结果之间相互独立的特点，RNN的每一次隐含层的计算结果都与当前输入以及上一次的隐含层结果相关。通过这种方法，RNN的计算结果便具备了记忆之前几次结果的特点。">
+<meta name="twitter:image" content="https://images2015.cnblogs.com/blog/947235/201608/947235-20160821234331464-1137952568.png">
 
 
 
@@ -133,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/02/28/Ubuntu-后台运行程序/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/17/RNN模型/"/>
 
 
 
 
 
-  <title>Ubuntu 后台运行程序 | 努力努力再努力</title>
+  <title>RNN模型 | 努力努力再努力</title>
   
 
 
@@ -272,7 +277,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/28/Ubuntu-后台运行程序/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/17/RNN模型/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈文燕">
@@ -289,7 +294,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Ubuntu 后台运行程序</h1>
+          <h1 class="post-title" itemprop="name headline">RNN模型</h1>
         
 
         <div class="post-meta">
@@ -301,8 +306,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-28T15:18:26+08:00">
-                2018-02-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-17T17:03:36+08:00">
+                2018-04-17
               </time>
             
 
@@ -339,23 +344,32 @@
       
 
       
-        <h3 id="Ubuntu后台运行程序"><a href="#Ubuntu后台运行程序" class="headerlink" title="Ubuntu后台运行程序"></a>Ubuntu后台运行程序</h3><h4 id="1-使用nohup"><a href="#1-使用nohup" class="headerlink" title="1. 使用nohup"></a>1. 使用nohup</h4><p>​    <code>nohup Command &amp;</code></p>
-<p>​    例如运行matlab程序：</p>
-<p>​    <code>nohup matlab -nodisplay -r &#39;run main&#39; 1&gt; running.log 2&gt; running.err &amp;</code></p>
-<p>​    需要注意的是: 在执行完这条命令后终端会返回ignoring input and appending output to nohup.out，此时表示挂起成功，但<strong>需要在键盘按任意键返回到shell输入命令窗口，然后通过在shell中输入exit来退出终端</strong>。<a id="more"></a></p>
-<p>​    如果使用nohup命令提交作业，那么在缺省情况下该作业的所有输出都被重定向到一个名为nohup.out的文件中，除非另外指定了输出文件：</p>
-<p>​    <code>nohup command &gt; myout.file 2&gt;&amp;1 &amp;</code> </p>
-<p>​    在上面的例子中，标准输出和标准错误被重定向到myout.file文件中。linux中默认定义两个变量：1指标准输出；2指错误输出。但是上面的指令不能写成：<code>nohup command &gt; myout.file 2&gt;myout.file &amp;</code> 因为会造成相同文件名冲突。</p>
-<h5 id="查看后台运行的任务："><a href="#查看后台运行的任务：" class="headerlink" title="查看后台运行的任务："></a>查看后台运行的任务：</h5><ol>
-<li>在当前同一个终端，使用<code>jobs</code> 查看，可以使用<code>fg %n</code> 将编号为n的任务转前台</li>
-<li>如果终端已经关掉重新开一个，使用<code>ps</code> 查看</li>
-<li>监控标准输出可以使用<code>tail -f myout.file</code> </li>
-</ol>
-<h4 id="2-使用screen"><a href="#2-使用screen" class="headerlink" title="2. 使用screen"></a>2. 使用screen</h4><p>​    <code>screen Command</code> </p>
-<p>​    此命令会打开一个新的窗口并在这个窗口运行command指令，要退出时使用<code>Ctrl+a，d</code>退出当前窗口到主窗口。</p>
-<p>​    使用<code>screen -ls</code> 可以查看screen会话。</p>
-<p>​    使用<code>screen -r n</code> 重新连接编号为n的screen使其接着运行</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">参考博客：[<span class="string">http://blog.csdn.net/wind19/article/details/4986458</span>](<span class="link">http://blog.csdn.net/wind19/article/details/4986458</span>)</span><br></pre></td></tr></table></figure>
+        <h2 id="RNN-模型"><a href="#RNN-模型" class="headerlink" title="RNN 模型"></a>RNN 模型</h2><p>时间序列模型最常用最强大的的工具就是递归神经网络（recurrent neural network, RNN）。相比与普通神经网络的各计算结果之间相互独立的特点，RNN的每一次隐含层的计算结果都与当前输入以及上一次的隐含层结果相关。通过这种方法，RNN的计算结果便具备了记忆之前几次结果的特点。<a id="more"></a></p>
+<p><strong>典型的RNN网路结构如下：</strong><br><img src="https://images2015.cnblogs.com/blog/947235/201608/947235-20160821234331464-1137952568.png" alt=""><br>右侧为计算时便于理解记忆而产开的结构。简单说，x为输入层，o为输出层，s为隐含层，而t指第几次的计算；V,W,U为权重，其中计算第t次的隐含层状态时为St = f(U<em>Xt + W</em>St-1)，实现当前输入结果与之前的计算挂钩的目的。对RNN想要更深入的了解可以戳<a href="http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/" target="_blank" rel="noopener"><strong>这里</strong></a>。</p>
+<h4 id="RNN-神经网络记忆"><a href="#RNN-神经网络记忆" class="headerlink" title="RNN 神经网络记忆"></a>RNN 神经网络记忆</h4><p>神经网络有隐藏层，一般来讲，隐藏层的状态只跟输入数据有关。所以一般来说一个神经网络的信息流就会像下面所示的这样：</p>
+<p><strong>input -&gt; hidden -&gt;output</strong></p>
+<p>例子：4 timesteps with <strong>hidden layer recurrence</strong>:</p>
+<p><strong>(input + empty_hidden) -&gt; hidden -&gt; output</strong></p>
+<p><strong>(input + prev_hidden) -&gt; hidden -&gt; output</strong></p>
+<p><strong>(input + prev_hidden) -&gt; hidden -&gt; output</strong></p>
+<p><strong>(input + prev_hidden ) -&gt; hidden -&gt; output</strong></p>
+<p>例子： and 4 timesteps with <strong>input layer recurrence：</strong></p>
+<p><strong>(input + empty_input) -&gt; hidden -&gt; output</strong></p>
+<p><strong>(input + prev_input) -&gt; hidden -&gt; output</strong></p>
+<p><strong>(input + prev_input) -&gt; hidden -&gt; output</strong></p>
+<p><strong>(input + prev_input) -&gt; hidden -&gt; output</strong></p>
+<p>1、RNN使用隐藏层递归，即每次隐藏层的信息不仅来源于输入层，而且来源于前面隐藏层的信息（前面的输入和前面的隐藏层）。也就是说，在RNN中，采用隐藏层递归的方式，可以实现一个长期记忆。当然，隐藏层神经元的数量有限，因此当信息累计达到上限时，隐藏层再抛弃最早的记忆（最早的输入）。</p>
+<p>从这张图中能看出来很多东西。这里只有三个权值矩阵，其中两个很相似（名字也一样）。SYNAPSE_0把输入数据传播到隐含层，SYNAPSE_1把隐含层数据传播到输出层。新的矩阵（SYNAPSE_h……要递归的），把隐含层（layer_1）传播到下一个时间点的隐含层（仍旧是layer_1）。</p>
+<p><img src="http://jbcdn2.b0.upaiyun.com/2016/04/4ea6e7bfcc0c1c7a1935fc6cb364fae7.png" alt=""></p>
+<p>2、下面的GIF图展现出递归神经网络的奥秘，以及一些非常、非常重要的性质。图中描述了4个时间步数，第一个仅仅受到输入数据的影响，第二个把第二个输入与第一个的隐含层混合，如此继续。有人可能会注意到，在这种方式下，第四个网络“满了”。这样推测的话，第五步不得不选择一个某个节点去替代掉它。是的，这很正确。这就是记忆的“容量”概念。正如你所期望的，更多的隐含层节点能够存储更多的记忆，并使记忆保持更长的时间。同样这也是网络学习去忘记无关的记忆并且记住重要的记忆。</p>
+<p>另外需要注意的是，隐含层是输入与输出中间的一道栅栏。事实上，输出已经不再是对应于输入的一个函数。<strong>输入只是改变了记忆中存储的东西，而且输出仅仅依赖于记忆！</strong>告诉你另外一个有趣的事情，如果上图中的第2,3,4步没有输入，随着时间的流逝，隐含层仍然会改变。</p>
+<p><img src="http://jbcdn2.b0.upaiyun.com/2016/04/c6ddb48071f17ab8ce6139c0b5ef5d16.gif" alt=""></p>
+<p>3、反向传播</p>
+<p>递归神经网络怎么学习的呢？看下面的图片，黑色的是预测，误差是亮黄色，导数是芥末色的（暗黄色）。</p>
+<p><img src="http://jbcdn2.b0.upaiyun.com/2016/04/a29ee0ead530c88c85630d0c05f559ef.gif" alt=""></p>
+<p>网络通过从1到4的全部传播（通过任意长度的整个序列），然后从4到1反向传播所有的导数值。你也可以认为这仅仅是正常神经网络的一个有意思的变形，除了我们在各自的地方复用了相同的权值（突触synapses 0,1,h）。其他的地方都是很普通的反向传播。</p>
+<h4 id="RNN的局限："><a href="#RNN的局限：" class="headerlink" title="RNN的局限："></a><strong>RNN的局限：</strong></h4><p>由于RNN模型如果需要实现长期记忆的话需要将当前的隐含态的计算与前n次的计算挂钩，即St = f(U<em>Xt + W1</em>St-1 + W2<em>St-2 + … + Wn</em>St-n)，那样的话计算量会呈指数式增长，导致模型训练的时间大幅增加，因此RNN模型一般直接用来进行长期记忆计算。</p>
+<p>参考：<a href="http://iamtrask.github.io/2015/11/15/anyone-can-code-lstm/" target="_blank" rel="noopener">http://iamtrask.github.io/2015/11/15/anyone-can-code-lstm/</a> ，<a href="http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/" target="_blank" rel="noopener">http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/</a></p>
 
       
     </div>
@@ -380,8 +394,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/28/远程服务器运行matlab/" rel="next" title="远程服务器运行matlab">
-                <i class="fa fa-chevron-left"></i> 远程服务器运行matlab
+              <a href="/2018/04/17/LSTM网络/" rel="next" title="LSTM网络">
+                <i class="fa fa-chevron-left"></i> LSTM网络
               </a>
             
           </div>
@@ -389,10 +403,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/13/PCA故障检测/" rel="prev" title="PCA故障检测">
-                PCA故障检测 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -508,7 +518,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ubuntu后台运行程序"><span class="nav-number">1.</span> <span class="nav-text">Ubuntu后台运行程序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-使用nohup"><span class="nav-number">1.1.</span> <span class="nav-text">1. 使用nohup</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#查看后台运行的任务："><span class="nav-number">1.1.1.</span> <span class="nav-text">查看后台运行的任务：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-使用screen"><span class="nav-number">1.2.</span> <span class="nav-text">2. 使用screen</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#RNN-模型"><span class="nav-number">1.</span> <span class="nav-text">RNN 模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#RNN-神经网络记忆"><span class="nav-number">1.0.1.</span> <span class="nav-text">RNN 神经网络记忆</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RNN的局限："><span class="nav-number">1.0.2.</span> <span class="nav-text">RNN的局限：</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
