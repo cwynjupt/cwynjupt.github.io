@@ -1,163 +1,27 @@
 <!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Hexo, NexT" />
-
-
-
-
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
-
-
-
-
-
-
-<meta name="description" content="LSTM 网络LSTM 通过刻意的设计来避免长期依赖问题。记住长期的信息在实践中是 LSTM 的默认行为，而非需要付出很大代价才能获得的能力！">
-<meta property="og:type" content="article">
-<meta property="og:title" content="LSTM网络">
-<meta property="og:url" content="http://yoursite.com/2018/04/17/LSTM网络/index.html">
-<meta property="og:site_name" content="努力努力再努力">
-<meta property="og:description" content="LSTM 网络LSTM 通过刻意的设计来避免长期依赖问题。记住长期的信息在实践中是 LSTM 的默认行为，而非需要付出很大代价才能获得的能力！">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/42741-9ac355076444b66f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/42741-b9a16a53d58ca2b9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/42741-ea943b818b8e18d0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/42741-ac1eb618f37a9dea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/42741-7169541c790efd13.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/42741-96b387f711d1d12c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/42741-7fa07e640593f930.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/42741-d88caa3c4faf5353.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/42741-4c9186bf786063d6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/42741-0f80ad5540ea27f9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/42741-bd2f1feaea22630e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/42741-dd3d241fa44a71c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-04-17T09:03:57.940Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LSTM网络">
-<meta name="twitter:description" content="LSTM 网络LSTM 通过刻意的设计来避免长期依赖问题。记住长期的信息在实践中是 LSTM 的默认行为，而非需要付出很大代价才能获得的能力！">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/42741-9ac355076444b66f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+  <link rel="stylesheet" href="/style/style.css">
+<script>
+    var NlviConfig = {
+        title: "努力努力再努力",
+        author: "陈文燕",
+        theme: "banderole",
+        lightbox: true,
+        animate: true,
+        baseUrl: "/",
+        search: true
     }
-  };
 </script>
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/17/LSTM网络/"/>
+    <link rel="stylesheet" href="/script/lib/lightbox/css/lightbox.min.css">
 
 
 
 
-
-  <title>LSTM网络 | 努力努力再努力</title>
-  
-
-
-
-
+    <link rel="stylesheet" href="/syuanpi/syuanpi.min.css">
 
 
 
@@ -168,189 +32,217 @@
 
 
 
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="browsermode" content="application">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="努力努力再努力">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="msapplication-navbutton-color" content="#666666">
+<meta name= "format-detection" content="telephone=no" />
+<meta name="keywords" content="nlvi, Nlvi" />
+
+
+  <meta name="subtitle" content="努力努力再努力">
+
+
+  <meta name="description" content="cwy's blog">
+
+
+
+  <title> LSTM网络 · 努力努力再努力 </title>
 </head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-
+<body>
+  <div class="progress">
+  <div class="progress-inner"></div>
+</div>
   
   
+    <div class="tagcloud-mask"></div>  
+<div class="tagcloud" id="tagcloud">
+  <div class="tagcloud-inner">
     
-  
-
-  <div class="container sidebar-position-left page-post-detail ">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">努力努力再努力</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-      
-        <p class="site-subtitle">努力努力再努力</p>
-      
   </div>
+</div>  
+  
 
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+  <div class="container">
+
+    <header class="header" id="header">
+  <div class="header-wrapper">
+    <div class="logo">
+  <div class="logo-inner syuanpi tvIn">
+    <span><a href="/">努力努力再努力</a></span>
+    
+      <span id="subtitle">努力努力再努力</span>
+    
   </div>
 </div>
-
-<nav class="site-nav">
+    <nav class="main-nav">
+        
+  <ul class="main-nav-list syuanpi tvIn">
   
-
+    <li class="menu-item">
+      <a href="javascript:;" id="search">
+        <span>搜索</span>
+        
+          <span class="menu-item-label">search</span>
+        
+      </a>
+    </li>
   
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            Startseite
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            Kategorien
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            Archiv
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            Tags
-          </a>
-        </li>
-      
-
-      
-    </ul>
   
-
+    
+      
+    
+    <li class="menu-item">
+      <a href="/" id="article">
+        <span class="base-name">文章</span>
+        
+          <span class="menu-item-label">article</span>
+        
+      </a>
+    </li>  
+  
+    
+      
+    
+    <li class="menu-item">
+      <a href="/archives" id="archives">
+        <span class="base-name">归档</span>
+        
+          <span class="menu-item-label">archives</span>
+        
+      </a>
+    </li>  
+  
+    
+      
+    
+    <li class="menu-item">
+      <a href="javascript:;" id="tags">
+        <span class="base-name">标签</span>
+        
+          <span class="menu-item-label">tags</span>
+        
+      </a>
+    </li>  
+  
+    
+      
+    
+    <li class="menu-item">
+      <a href="/about" id="about">
+        <span class="base-name">关于</span>
+        
+          <span class="menu-item-label">about</span>
+        
+      </a>
+    </li>  
+  
+  </ul>
   
 </nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
     
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/17/LSTM网络/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈文燕">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="努力努力再努力">
-    </span>
-
     
-      <header class="post-header">
-
+  </div>
+</header>
+<div class="mobile-header">
+  <div class="mobile-header-body">
+    <div class="mobile-header-list">
+      
         
+            <div class="mobile-nav-item">
+                <a href="/">
+                    <span>文章</span>
+                    
+                        <span class="menu-item-label">article</span>
+                    
+                </a>
+            </div>
         
-          <h1 class="post-title" itemprop="name headline">LSTM网络</h1>
+      
         
-
-        <div class="post-meta">
-          <span class="post-time">
+            <div class="mobile-nav-item">
+                <a href="/archives">
+                    <span>归档</span>
+                    
+                        <span class="menu-item-label">archives</span>
+                    
+                </a>
+            </div>
+        
+      
+        
+          <div class="mobile-nav-item inner-cloud">
+            <div class="mobile-nav-tag">
+              <a href="javascript:;" id="mobile-tags">
+                <span>标签</span>
+                
+                    <span class="menu-item-label">tags</span>
+                
+              </a>
+            </div>
+            <div class="mobile-nav-tagcloud">
+              <div class="mobile-tagcloud-inner">
+                
+              </div>
+            </div>
+          </div>
+        
+      
+        
+            <div class="mobile-nav-item">
+                <a href="/about">
+                    <span>关于</span>
+                    
+                        <span class="menu-item-label">about</span>
+                    
+                </a>
+            </div>
+        
+      
+    </div>
+  </div>
+  <div class="mobile-header-nav">
+    <div class="mobile-header-item" id="mobile-left">
+      <div class="header-menu-item">
+        <span class="header-menu-line"></span>
+      </div>
+    </div>
+    <h1 class="mobile-header-title">
+      <a href="/">努力努力再努力</a>
+    </h1>
+    <div class="mobile-header-item"></div>
+  </div>
+</div>
+    <div class="container-inner">
+      <main class="main" id="main">
+        <div class="main-wrapper">
+          
+    
+  <article class="
+  post
+   is_post 
+  ">
+    <header class="post-header">
+      <div class="post-time syuanpi riseIn-light back-1">
+        <div class="post-time-wrapper">
+          <span>2018-04-17</span>
+          
+          
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-17T17:03:28+08:00">
-                2018-04-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
           
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
+      </div>
+      <h1 class="post-title syuanpi riseIn-light back-2">
+        
+          LSTM网络
+        
+      </h1>
+    </header>
+    <div class="post-content syuanpi riseIn-light back-3">
       
         <h1 id="LSTM-网络"><a href="#LSTM-网络" class="headerlink" title="LSTM 网络"></a>LSTM 网络</h1><p>LSTM 通过刻意的设计来避免长期依赖问题。记住长期的信息在实践中是 LSTM 的默认行为，而非需要付出很大代价才能获得的能力！<a id="more"></a></p>
 <p>所有 RNN 都具有一种重复神经网络模块的链式的形式。在标准的 RNN 中，这个重复的模块只有一个非常简单的结构，例如一个 tanh 层。</p>
@@ -393,334 +285,258 @@
 <p><img src="http://upload-images.jianshu.io/upload_images/42741-dd3d241fa44a71c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>这里只是部分流行的 LSTM 变体。当然还有很多其他的，如Yao, et al. (2015) 提出的 Depth Gated RNN。还有用一些完全不同的观点来解决长期依赖的问题，如Koutnik, et al. (2014)提出的 Clockwork RNN。</p>
 <p>要问哪个变体是最好的？其中的差异性真的重要吗？<a href="https://link.jianshu.com?t=http://arxiv.org/pdf/1503.04069.pdf" target="_blank" rel="noopener">Greff, et al. (2015)</a> 给出了流行变体的比较，结论是他们基本上是一样的。<a href="https://link.jianshu.com?t=http://jmlr.org/proceedings/papers/v37/jozefowicz15.pdf" target="_blank" rel="noopener">Jozefowicz, et al. (2015)</a> 则在超过 1 万种 RNN 架构上进行了测试，发现一些架构在某些任务上也取得了比 LSTM 更好的结果。</p>
-<p>参考：<a href="https://www.jianshu.com/p/9dc9f41f0b29" target="_blank" rel="noopener">https://www.jianshu.com/p/9dc9f41f0b29</a></p>
+<p>以上是LSTM的前向计算过程，下面介绍求解梯度的反向传播算法。</p>
+<h2 id="梯度求解：BPTT-随时间反向传播"><a href="#梯度求解：BPTT-随时间反向传播" class="headerlink" title="梯度求解：BPTT 随时间反向传播"></a>梯度求解：BPTT 随时间反向传播</h2><p>(1) 前向计算各时刻遗忘门状态 ft、输入门状态it、当前输入新信息 C¯t、细胞状态 Ct、输出门状态 ot、隐藏层状态 ht、模型输出 yt； </p>
+<p>(2) 反向传播计算误差 δ，即模型目标函数 E 对加权输入 nett=(Wh∗ht−1+Wx∗xt+b)的偏导；(注意，δ 的传播沿两个方向，分别为从输出层传递至输入层，以及沿时间 t的反向传播) </p>
+<p>(3) 求解模型目标函数 E对权重Whf,Wxf,bf;Whi,Wxi,bi;Whc,Wxc,bc;Who,Wxo,bo;Wy,by</p>
+<p>的偏导数。<strong>δ</strong>沿时间 t <strong>的反向传播</strong> 定义 δht=∂E∂ht</p>
+<p>由于 ht=ot∗tanh(Ct)</p>
+<p>可得 δot=∂E∂ot=δht∗tanh(Ct)</p>
+<p>δCt+=δht∗ot∗(1−tanh2(Ct))</p>
+<p>注意，由于 Ct记忆了所有时刻的细胞状态，故每个时间点迭代时，δCt累加。</p>
+<p>由于 Ct=it∗C¯t+ft∗Ct−1</p>
+<p>则 δit=δCt∗C¯t</p>
+<p>δft=δCt∗Ct−1</p>
+<p>δCt¯=δCt∗it</p>
+<p>δCt−1=δCt∗ft</p>
+<p>由于 it=f(netit)=sigmoid(Whi∗ht−1+Wxi∗xt+bi)</p>
+<p>ft=f(netft)=sigmoid(Whf∗ht−1+Wxf∗xt+bf)</p>
+<p>C¯t=f(netC¯t)=tanh(WhC¯∗ht−1+WxC¯∗xt+bC¯)</p>
+<p>it=f(netot)=sigmoid(Who∗ht−1+Wxo∗xt+bo)</p>
+<p>故 </p>
+<p>δnetit=δit∗f′(netit)=δit∗it∗(1−it)</p>
+<p>δnetft=δft∗f′(netft)=δft∗ft∗(1−ft)</p>
+<p>δnetC¯t=δC¯t∗f′(netC¯t)=δC¯t∗(1−C¯2t)</p>
+<p>δnetot=δot∗f′(netot)=δot∗ot∗(1−ot)</p>
+<p>最后，可求得各个权重矩阵的偏导数</p>
+<p>∂E∂Whi+=δnetit∗hTt−1,∂E∂Wxi+=δnetit∗xTt,∂E∂bi+=δnetit</p>
+<p>∂E∂Whf+=δnetft∗hTt−1,∂E∂Wxf+=δnetft∗xTt,∂E∂bf+=δnetft</p>
+<p>∂E∂WhC¯+=δnetC¯t∗hTt−1,∂E∂WxC¯+=δnetC¯t∗xTt,∂E∂bC¯+=δnetC¯t</p>
+<p>∂E∂Who+=δnetot∗hTt−1,∂E∂Wxo+=δnetot∗xTt,∂E∂bo+=δnetot</p>
+<p>注意以上权重参数在所有时刻共享，故每个时间点迭代时梯度累加。</p>
+<p><strong>某一时刻 t,δ</strong> <strong>从输出层传递至输入层</strong></p>
+<p>对于输出层 L ：由于 yt=g(Wy∗ht+by)=g(nett)，则 δLnett=δEδyt∗g′(nett)可求得权重矩阵 Wy,by的偏导数 ：</p>
+<p>∂E∂WY=δLnett∗hTt</p>
+<p>∂E∂bY=δLnett</p>
+<p>也可得 δLht=WTy∗δLnett</p>
+<p> 对于其它层 l ： </p>
+<p>由 nett=(Wh∗ht−1+Wx∗xt+b)</p>
+<p>δl−1ht=δEδhl−1t=δlht∗δhltδhl−1t</p>
+<p>因为 δlht∗δhltδhl−1t=δlht∗δhltδolt∗δoltδhl−1t+δlht∗δhltδclt∗δcltδiltδiltδhl−1t+δlht∗δhltδclt∗δcltδc¯ltδc¯ltδhl−1t+δlht∗δhltδclt∗δcltδfltδfltδhl−1t</p>
+<p>故 δl−1ht=δlht∗δhltδhl−1t=δlotT∗Wxo∗f′(netlot)+δlitT∗Wxi∗f′(netlit)+δlc¯tT∗Wxc¯∗f′(netlc¯t)+δlftT∗Wxf∗f′(netlft)</p>
+<p> 以上是LSTM各参数的梯度求解过程，下面依照以上公式，实现一个简单的单层LSTM网络。</p>
+<p>参考：<a href="https://www.jianshu.com/p/9dc9f41f0b29" target="_blank" rel="noopener">https://www.jianshu.com/p/9dc9f41f0b29</a> <a href="https://blog.csdn.net/flyinglittlepig/article/details/72229041" target="_blank" rel="noopener">https://blog.csdn.net/flyinglittlepig/article/details/72229041</a></p>
 
       
+    
     </div>
     
+      
+      
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/04/13/PCA故障检测/" rel="next" title="PCA故障检测">
-                <i class="fa fa-chevron-left"></i> PCA故障检测
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/17/RNN模型/" rel="prev" title="RNN模型">
-                RNN模型 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
   </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
-  </div>
-
-
-          </div>
-          
-
-
-          
-  <div class="comments" id="comments">
-    
-  </div>
-
-
-        </div>
-        
-          
   
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
+    
+  <nav class="article-page">
+    
+      <a href="/2018/04/17/RNN模型/" id="art-left" class="art-left">
+        <span class="next-title">
+          <i class="iconfont icon-left"></i>RNN模型
+        </span>
+      </a>
+    
+    
+      <a href="/2018/04/13/PCA故障检测/" id="art-right" class="art-right">
+        <span class="prev-title"> 
+          PCA故障检测<i class="iconfont icon-right"></i>  
+        </span>
+      </a>
+    
+  </nav>
+
+    
+  <i id="com-switch" class="iconfont icon-more jumping-in long infinite" style="font-size:24px;display:block;text-align:center;transform:rotate(180deg);"></i>
+  <div class="post-comments" id="post-comments" style="display: block;margin: auto 16px;">
+    
+    
+    
+
   </div>
 
-  <aside id="sidebar" class="sidebar">
+
+  
+   
     
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
-          </li>
-        </ul>
-      
-
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
-               alt="陈文燕" />
-          <p class="site-author-name" itemprop="name">陈文燕</p>
-           
-              <p class="site-description motion-element" itemprop="description">cwy's blog</p>
-          
-        </div>
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives/">
-                <span class="site-state-item-count">13</span>
-                <span class="site-state-item-name">Artikel</span>
-              </a>
-            </div>
-          
-
-          
-
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-        </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#LSTM-网络"><span class="nav-number">1.</span> <span class="nav-text">LSTM 网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#LSTM-的核心思想"><span class="nav-number">1.1.</span> <span class="nav-text">LSTM 的核心思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逐步理解-LSTM"><span class="nav-number">1.2.</span> <span class="nav-text">逐步理解 LSTM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LSTM-的变体"><span class="nav-number">1.3.</span> <span class="nav-text">LSTM 的变体</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
+  
+  <aside class="post-toc">
+    <span class="title" id="toc-switch"><span>文章导航</span></span>
+    <div class="toc-inner syuanpi back-1 fallIn-light">
+      <li class="title-link"><a href="javascript:;" class="toTop">LSTM网络</a></li>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#LSTM-网络"><span class="toc-text">LSTM 网络</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#LSTM-的核心思想"><span class="toc-text">LSTM 的核心思想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#逐步理解-LSTM"><span class="toc-text">逐步理解 LSTM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LSTM-的变体"><span class="toc-text">LSTM 的变体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#梯度求解：BPTT-随时间反向传播"><span class="toc-text">梯度求解：BPTT 随时间反向传播</span></a></li></ol></li></ol>
     </div>
   </aside>
 
 
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">陈文燕</span>
-</div>
 
 
-<div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
-</div>
+        </div>
+      </main>
 
-<div class="theme-info">
-  Theme -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
-  </a>
-</div>
-
-
-        
-
-        
-      </div>
-    </footer>
-
+      <footer class="footer syuanpi fadeIn" id="footer">
+  <hr>
+  <div class="footer-wrapper">
+    <div class="left">
+      <div class="contact-icon">
     
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
     
-
+    
+    
+    
+    
+    
+    
+        
+        
+        
+        
+        
+            <a href="https://www.facebook.com/1" class="iconfont icon-facebook" title="facebook"></a>
+        
+        
+        
+    
+        
+        
+        
+            <a href="https://twitter.com/2" class="iconfont icon-twitter" title="twitter"></a>
+        
+        
+        
+        
+        
+    
+        
+        
+        
+        
+        
+        
+        
+            <a href="https://www.instagram.com/3" class="iconfont icon-ins" title="instagram"></a>
+        
+    
+        
+        
+            <a href="https://weibo.com/4" class="iconfont icon-weibo" title="weibo"></a>
+        
+        
+        
+        
+        
+        
+    
+        
+        
+        
+        
+            <a href="https://www.zhihu.com/people/5" class="iconfont icon-zhihu" title="zhihu"></a>
+        
+        
+        
+        
+    
+        
+            <a href="https://github.com/6" class="iconfont icon-github" title="github"></a>
+        
+        
+        
+        
+        
+        
+        
+    
+        
+        
+        
+        
+        
+        
+            <a href="https://www.linkedin.com/in/7" class="iconfont icon-linkedin" title="linkedin"></a>
+        
+        
+    
+</div>
+    </div>
+    <div class="right">
+      <div class="copyright">
+    <div class="info">
+        <span>&copy;</span>
+        <span>2016 ~ 2018</span>
+        <span>❤</span>
+        <span>陈文燕</span>
+    </div>
+    <div class="theme">
+        <span>
+            动力来源于
+            <a href="http://hexo.io/" target="_blank">Hexo </a>
+        </span>
+        <span>
+            主题
+            <a href="https://github.com/ColMugX/hexo-theme-Nlvi"> Nlvi </a>
+        </span>
+    </div>
+    
+</div>
+    </div>
   </div>
+</footer>
+    </div>
+  </div>
+  <script src="/script/lib/jquery/jquery-3.2.1.min.js"></script>
 
-  
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+    <script src="/script/lib/lightbox/js/lightbox.min.js"></script>
+
+
+
+
+
+
+<script src="/script/src/nlvi.js"></script>
+<script src="/script/src/utils.js"></script>
+<script src="/script/scheme/balance.js"></script>
+<script src="/script/src/plugins.js"></script>
+<script src="/script/bootstarp.js"></script>
+
+
+<div class="backtop syuanpi dead toTop" id="backtop">
+    <i class="iconfont icon-up"></i>
+    <span style="text-align:center;font-family:Georgia;"><span style="font-family:Georgia;" id="scrollpercent">1</span>%</span>
+</div>
+
+
+  <div class="search" id="search">
+    <div class="mask" id="mask"></div>
+    <div class="search-wrapper syuanpi">
+      <h2 id="search-header" class="syuanpi">搜索一下？</h2>
+      <div class="input">
+        <input type="text" id="local-search-input" results="0" name="">
+      </div>
+      <div id="local-search-result"></div>
+    </div>
+  </div>
+  <script>
+  if (NlviConfig.theme === 'banderole') {
+    var GREETING = {
+      morning: "我的博客里可没有早饭！",
+      noon: "记得午休吃饭，不着急看我的博客~",
+      after: "下午好，感谢查阅我的博客",
+      night: "您来我的博客看笑话当做休息嘛",
+      midnight: "我觉得大半夜就不要看啦"
+    }
   }
-</script>
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
+  </script>
 
 </body>
 </html>
