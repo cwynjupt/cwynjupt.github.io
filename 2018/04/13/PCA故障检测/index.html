@@ -1,249 +1,302 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-Hans">
 <head>
-  <link rel="stylesheet" href="/style/style.css">
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="陈文燕" />
+
+
+
+<meta name="description" content="基于主元分析的故障检测与诊断（PCA）通过降低原始数据的空间维度，从新的隐式变量中提取主要的信息和特征，足以反映原始数据的信息和变化。  第一步是提取主元模型：将历史数据收集起来，将数据进行标准化，  应用PCA。前k个主元$y_n$对应的为normal space（$s_n$）,后面n-k个主元$y_a$对应的为abnormal space($s_a$)。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PCA故障检测">
+<meta property="og:url" content="http://yoursite.com/2018/04/13/PCA故障检测/index.html">
+<meta property="og:site_name" content="努力努力再努力">
+<meta property="og:description" content="基于主元分析的故障检测与诊断（PCA）通过降低原始数据的空间维度，从新的隐式变量中提取主要的信息和特征，足以反映原始数据的信息和变化。  第一步是提取主元模型：将历史数据收集起来，将数据进行标准化，  应用PCA。前k个主元$y_n$对应的为normal space（$s_n$）,后面n-k个主元$y_a$对应的为abnormal space($s_a$)。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-13T08:01:00.141Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PCA故障检测">
+<meta name="twitter:description" content="基于主元分析的故障检测与诊断（PCA）通过降低原始数据的空间维度，从新的隐式变量中提取主要的信息和特征，足以反映原始数据的信息和变化。  第一步是提取主元模型：将历史数据收集起来，将数据进行标准化，  应用PCA。前k个主元$y_n$对应的为normal space（$s_n$）,后面n-k个主元$y_a$对应的为abnormal space($s_a$)。">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="努力努力再努力" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>PCA故障检测 | 努力努力再努力</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
 <script>
-    var NlviConfig = {
-        title: "努力努力再努力",
-        author: "陈文燕",
-        theme: "banderole",
-        lightbox: true,
+    var yiliaConfig = {
+        fancybox: true,
         animate: true,
-        baseUrl: "/",
-        search: true
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: 
     }
 </script>
 
 
-
-    <link rel="stylesheet" href="/script/lib/lightbox/css/lightbox.min.css">
-
+    <script> yiliaConfig.jquery_ui = [false]; </script>
 
 
 
-    <link rel="stylesheet" href="/syuanpi/syuanpi.min.css">
+    <script> yiliaConfig.rootUrl = "\/";</script>
 
 
 
 
 
 
-
-
-
-
-<meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<meta name="browsermode" content="application">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="努力努力再努力">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="msapplication-navbutton-color" content="#666666">
-<meta name= "format-detection" content="telephone=no" />
-<meta name="keywords" content="nlvi, Nlvi" />
-
-
-  <meta name="subtitle" content="努力努力再努力">
-
-
-  <meta name="description" content="cwy's blog">
-
-
-
-  <title> PCA故障检测 · 努力努力再努力 </title>
 </head>
 <body>
-  <div class="progress">
-  <div class="progress-inner"></div>
-</div>
-  
-  
-    <div class="tagcloud-mask"></div>  
-<div class="tagcloud" id="tagcloud">
-  <div class="tagcloud-inner">
-    
-  </div>
-</div>  
-  
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">陈文燕</a></h1>
+        </hgroup>
 
-  <div class="container">
+        
+        <p class="header-subtitle">努力努力再努力</p>
+        
 
-    <header class="header" id="header">
-  <div class="header-wrapper">
-    <div class="logo">
-  <div class="logo-inner syuanpi tvIn">
-    <span><a href="/">努力努力再努力</a></span>
-    
-      <span id="subtitle">努力努力再努力</span>
-    
-  </div>
-</div>
-    <nav class="main-nav">
         
-  <ul class="main-nav-list syuanpi tvIn">
-  
-    <li class="menu-item">
-      <a href="javascript:;" id="search">
-        <span>搜索</span>
+
+
         
-          <span class="menu-item-label">search</span>
-        
-      </a>
-    </li>
-  
-  
-    
-      
-    
-    <li class="menu-item">
-      <a href="/" id="article">
-        <span class="base-name">文章</span>
-        
-          <span class="menu-item-label">article</span>
-        
-      </a>
-    </li>  
-  
-    
-      
-    
-    <li class="menu-item">
-      <a href="/archives" id="archives">
-        <span class="base-name">归档</span>
-        
-          <span class="menu-item-label">archives</span>
-        
-      </a>
-    </li>  
-  
-    
-      
-    
-    <li class="menu-item">
-      <a href="javascript:;" id="tags">
-        <span class="base-name">标签</span>
-        
-          <span class="menu-item-label">tags</span>
-        
-      </a>
-    </li>  
-  
-    
-      
-    
-    <li class="menu-item">
-      <a href="/about" id="about">
-        <span class="base-name">关于</span>
-        
-          <span class="menu-item-label">about</span>
-        
-      </a>
-    </li>  
-  
-  </ul>
-  
-</nav>
-    
-    
-  </div>
-</header>
-<div class="mobile-header">
-  <div class="mobile-header-body">
-    <div class="mobile-header-list">
-      
-        
-            <div class="mobile-nav-item">
-                <a href="/">
-                    <span>文章</span>
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
                     
-                        <span class="menu-item-label">article</span>
-                    
-                </a>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
             </div>
         
-      
-        
-            <div class="mobile-nav-item">
-                <a href="/archives">
-                    <span>归档</span>
-                    
-                        <span class="menu-item-label">archives</span>
-                    
-                </a>
-            </div>
-        
-      
-        
-          <div class="mobile-nav-item inner-cloud">
-            <div class="mobile-nav-tag">
-              <a href="javascript:;" id="mobile-tags">
-                <span>标签</span>
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="/1147992514@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/cwynjupt" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
                 
-                    <span class="menu-item-label">tags</span>
                 
-              </a>
-            </div>
-            <div class="mobile-nav-tagcloud">
-              <div class="mobile-tagcloud-inner">
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        
+                    </div>
+                </section>
                 
-              </div>
-            </div>
-          </div>
-        
-      
-        
-            <div class="mobile-nav-item">
-                <a href="/about">
-                    <span>关于</span>
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
                     
-                        <span class="menu-item-label">about</span>
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
                     
-                </a>
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
             </div>
-        
-      
-    </div>
-  </div>
-  <div class="mobile-header-nav">
-    <div class="mobile-header-item" id="mobile-left">
-      <div class="header-menu-item">
-        <span class="header-menu-line"></span>
-      </div>
-    </div>
-    <h1 class="mobile-header-title">
-      <a href="/">努力努力再努力</a>
-    </h1>
-    <div class="mobile-header-item"></div>
-  </div>
-</div>
-    <div class="container-inner">
-      <main class="main" id="main">
-        <div class="main-wrapper">
-          
-    
-  <article class="
-  post
-   is_post 
-  ">
-    <header class="post-header">
-      <div class="post-time syuanpi riseIn-light back-1">
-        <div class="post-time-wrapper">
-          <span>2018-04-13</span>
-          
-          
-            
-          
         </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">陈文燕</a></h1>
       </div>
-      <h1 class="post-title syuanpi riseIn-light back-2">
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">陈文燕</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">努力努力再努力</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="/1147992514@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/cwynjupt" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-PCA故障检测" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/04/13/PCA故障检测/" class="article-date">
+      <time datetime="2018-04-13T07:51:56.000Z" itemprop="datePublished">2018-04-13</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
-          PCA故障检测
-        
-      </h1>
-    </header>
-    <div class="post-content syuanpi riseIn-light back-3">
+  
+    <h1 class="article-title" itemprop="name">
+      PCA故障检测
+    </h1>
+  
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
         <h2 id="基于主元分析的故障检测与诊断（PCA）"><a href="#基于主元分析的故障检测与诊断（PCA）" class="headerlink" title="基于主元分析的故障检测与诊断（PCA）"></a>基于主元分析的故障检测与诊断（PCA）</h2><p>通过降低原始数据的空间维度，从新的隐式变量中提取主要的信息和特征，足以反映原始数据的信息和变化。</p>
 <ol>
 <li><p>第一步是提取主元模型：将历史数据收集起来，将数据进行标准化，</p>
@@ -278,215 +331,251 @@
 </ol>
 
       
-    
     </div>
     
-      
-      
-    
-  </article>
-  
-    
-  <nav class="article-page">
-    
-      <a href="/2018/04/17/LSTM网络/" id="art-left" class="art-left">
-        <span class="next-title">
-          <i class="iconfont icon-left"></i>LSTM网络
-        </span>
-      </a>
-    
-    
-      <a href="/2018/02/28/Ubuntu-后台运行程序/" id="art-right" class="art-right">
-        <span class="prev-title"> 
-          Ubuntu 后台运行程序<i class="iconfont icon-right"></i>  
-        </span>
-      </a>
-    
-  </nav>
-
-    
-  <i id="com-switch" class="iconfont icon-more jumping-in long infinite" style="font-size:24px;display:block;text-align:center;transform:rotate(180deg);"></i>
-  <div class="post-comments" id="post-comments" style="display: block;margin: auto 16px;">
-    
-    
-    
-
   </div>
-
-
   
-   
     
-  
-  <aside class="post-toc">
-    <span class="title" id="toc-switch"><span>文章导航</span></span>
-    <div class="toc-inner syuanpi back-1 fallIn-light">
-      <li class="title-link"><a href="javascript:;" class="toTop">PCA故障检测</a></li>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基于主元分析的故障检测与诊断（PCA）"><span class="toc-text">基于主元分析的故障检测与诊断（PCA）</span></a></li></ol>
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/04/13/PCA故障检测/">PCA故障检测</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">陈文燕</a></p>
+        <p><span>发布时间:</span>2018-04-13, 15:51:56</p>
+        <p><span>最后更新:</span>2018-04-13, 16:01:00</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/04/13/PCA故障检测/" title="PCA故障检测">http://yoursite.com/2018/04/13/PCA故障检测/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/04/13/PCA故障检测/　　作者: 陈文燕" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
     </div>
-  </aside>
 
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2018/04/17/LSTM网络/">
+                    LSTM网络
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/02/28/Ubuntu-后台运行程序/">
+                    Ubuntu 后台运行程序
+                </a>
+            </div>
+        
+    </nav>
 
   
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基于主元分析的故障检测与诊断（PCA）"><span class="toc-number">1.</span> <span class="toc-text">基于主元分析的故障检测与诊断（PCA）</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
 
 
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
         </div>
-      </main>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"PCA故障检测　| 努力努力再努力　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
 
-      <footer class="footer syuanpi fadeIn" id="footer">
-  <hr>
-  <div class="footer-wrapper">
-    <div class="left">
-      <div class="contact-icon">
-    
-    
-    
-    
-    
-    
-    
-    
-        
-        
-        
-        
-        
-            <a href="https://www.facebook.com/1" class="iconfont icon-facebook" title="facebook"></a>
-        
-        
-        
-    
-        
-        
-        
-            <a href="https://twitter.com/2" class="iconfont icon-twitter" title="twitter"></a>
-        
-        
-        
-        
-        
-    
-        
-        
-        
-        
-        
-        
-        
-            <a href="https://www.instagram.com/3" class="iconfont icon-ins" title="instagram"></a>
-        
-    
-        
-        
-            <a href="https://weibo.com/4" class="iconfont icon-weibo" title="weibo"></a>
-        
-        
-        
-        
-        
-        
-    
-        
-        
-        
-        
-            <a href="https://www.zhihu.com/people/5" class="iconfont icon-zhihu" title="zhihu"></a>
-        
-        
-        
-        
-    
-        
-            <a href="https://github.com/6" class="iconfont icon-github" title="github"></a>
-        
-        
-        
-        
-        
-        
-        
-    
-        
-        
-        
-        
-        
-        
-            <a href="https://www.linkedin.com/in/7" class="iconfont icon-linkedin" title="linkedin"></a>
-        
-        
     
 </div>
-    </div>
-    <div class="right">
-      <div class="copyright">
-    <div class="info">
-        <span>&copy;</span>
-        <span>2016 ~ 2018</span>
-        <span>❤</span>
-        <span>陈文燕</span>
-    </div>
-    <div class="theme">
-        <span>
-            动力来源于
-            <a href="http://hexo.io/" target="_blank">Hexo </a>
-        </span>
-        <span>
-            主题
-            <a href="https://github.com/ColMugX/hexo-theme-Nlvi"> Nlvi </a>
-        </span>
-    </div>
+
+
+
+
+
+
+
     
+      <div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2018/04/13/PCA故障检测/" data-title="PCA故障检测" data-url="http://yoursite.com/2018/04/13/PCA故障检测/"></div>
+    <script>
+        var duoshuoQuery = {short_name:""};
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            s.async = true; s.charset = 'UTF-8';
+            (d.head || d.body).appendChild(s);
+        }
+
+        
+    </script>
+    
+    <script> loadComment(); </script>
+
 </div>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2018/04/17/LSTM网络/" title="上一篇: LSTM网络">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2018/02/28/Ubuntu-后台运行程序/" title="下一篇: Ubuntu 后台运行程序">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
     </div>
-  </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/04/17/RNN模型/">RNN模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/17/LSTM网络/">LSTM网络</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/13/PCA故障检测/">PCA故障检测</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/28/Ubuntu-后台运行程序/">Ubuntu 后台运行程序</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/28/远程服务器运行matlab/">远程服务器运行matlab</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/05/异常检测技术/">异常检测技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/12/ELK平台配置/">ELK平台配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/05/java循环/">java循环</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/05/java数组/">java数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/05/java抽象类/">java抽象类</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/05/java访问控制/">java访问控制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/05/java程序结构/">java程序结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/05/java对象/">java对象</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2018 陈文燕
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
 </footer>
     </div>
-  </div>
-  <script src="/script/lib/jquery/jquery-3.2.1.min.js"></script>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
 
 
-    <script src="/script/lib/lightbox/js/lightbox.min.js"></script>
 
 
 
-
-
-
-<script src="/script/src/nlvi.js"></script>
-<script src="/script/src/utils.js"></script>
-<script src="/script/scheme/balance.js"></script>
-<script src="/script/src/plugins.js"></script>
-<script src="/script/bootstarp.js"></script>
-
-
-<div class="backtop syuanpi dead toTop" id="backtop">
-    <i class="iconfont icon-up"></i>
-    <span style="text-align:center;font-family:Georgia;"><span style="font-family:Georgia;" id="scrollpercent">1</span>%</span>
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
 </div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
 
+    <script>
+        var originTitle = document.title;
+        var titleTime;
+        document.addEventListener("visibilitychange", function() {
+            if (document.hidden) {
+                document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
+                clearTimeout(titleTime);
+            }
+            else {
+                document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+                titleTime = setTimeout(function() {
+                    document.title = originTitle;
+                }, 2000);
+            }
+        })
+    </script>
 
-  <div class="search" id="search">
-    <div class="mask" id="mask"></div>
-    <div class="search-wrapper syuanpi">
-      <h2 id="search-header" class="syuanpi">搜索一下？</h2>
-      <div class="input">
-        <input type="text" id="local-search-input" results="0" name="">
-      </div>
-      <div id="local-search-result"></div>
-    </div>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
   </div>
-  <script>
-  if (NlviConfig.theme === 'banderole') {
-    var GREETING = {
-      morning: "我的博客里可没有早饭！",
-      noon: "记得午休吃饭，不着急看我的博客~",
-      after: "下午好，感谢查阅我的博客",
-      night: "您来我的博客看笑话当做休息嘛",
-      midnight: "我觉得大半夜就不要看啦"
-    }
-  }
-  </script>
-
 </body>
 </html>
